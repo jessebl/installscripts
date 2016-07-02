@@ -1,0 +1,57 @@
+#! /bin/bash
+
+#Sublime Text PPA
+sudo add-apt-repository -y ppa:webupd8team/sublime-text-3
+#Numix PPA
+sudo apt-add-repository -y ppa:numix/ppa
+#My-Weather-Indicator PPA 
+sudo add-apt-repository -y ppa:atareao/atareao
+#Y PPA Manager PPA
+sudo add-apt-repository -y ppa:webupd8team/y-ppa-manager
+#PPAs for fixed libnotify and the notifyosdconfig
+sudo add-apt-repository -y ppa:leolik/leolik
+sudo add-apt-repository -y ppa:nilarimogard/webupd8
+#Dropbox Keyserver
+sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
+#Dropbox Repository
+sudo add-apt-repository -y "deb http://linux.dropbox.com/ubuntu $(lsb_release -sc) main"
+
+sudo apt update
+sudo apt -y upgrade
+
+sudo apt install -y synapse redshift-gtk chromium-browser pepperflashplugin-nonfree synaptic unity-tweak-tool indicator-multiload indicator-keylock sublime-text-installer keepass2 dropbox numix-icon-theme-circle unity-tweak-tool compizconfig-settings-manager compiz-plugins-extra pithos clementine git build-essential qtbase5-dev zlib1g-dev y-ppa-manager cowsay my-weather-indicator xdotool ssh sshfs screenfetch indicator-multiload mtpfs kodi steam libnotify-bin notifyosdconfig gimp
+
+sudo apt -y autoremove
+
+#For patched notify-osd
+pkill notify-osd
+
+#Desktop block (1 for yes, 0 for no)
+d = 1
+#CKB (Driver for RGB K70/90)
+if [$d -eq 1]
+	sudo apt -y install build-essential libudev-dev qt5-default zlib1g-dev libappindicator-dev
+	git clone https://github.com/ccMSC/ckb.git
+	cd ckb
+	sh quickinstall
+	rm -rf ~/ckb
+fi
+
+#QDirStat GitHub
+git clone https://github.com/shundhammer/qdirstat.git
+#cd into cloned directory
+cd qdirstat
+#Make with QT5 instead of 4
+export QT_SELECT="qt5"
+#Compile
+qmake
+make
+#Install
+sudo make install
+#Remove qdirstat cloned directory
+cd
+rm -rf ~/qdirstat
+
+#https://torguard.net/downloads.php
+
+printf "Don't forget to check drivers! \n"
