@@ -1,0 +1,1 @@
+This is my repo for sccripts, configuration files, etc. I use Ubuntu-based distros, at least for now, so most scripts will only work for those. A large part of the code (particularly for doing specific tasks, like the nautilus-to-nemo script) has been pulled from various places on the internet, and moving forward, I will try to source them in the body of the script itself.
