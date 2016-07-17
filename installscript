@@ -2,9 +2,6 @@
 
 #Numix PPA
 apt-add-repository -y ppa:numix/ppa
-#PPAs for fixed libnotify and the notifyosdconfig
-add-apt-repository -y ppa:leolik/leolik
-add-apt-repository -y ppa:nilarimogard/webupd8
 #Dropbox Keyserver
 apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
 #Dropbox Repository
@@ -16,6 +13,3 @@ apt -y upgrade
 apt install -y vim synapse redshift-gtk chromium-browser pepperflashplugin-nonfree synaptic unity-tweak-tool indicator-multiload keepass2 dropbox numix-icon-theme-circle compizconfig-settings-manager compiz-plugins-extra pithos clementine git cowsay xdotool ssh sshfs screenfetch mtpfs kodi steam libnotify-bin notifyosdconfig gimp
 
 apt -y autoremove
-
-#For patched notify-osd
-pkill notify-osd
