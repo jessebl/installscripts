@@ -1,4 +1,4 @@
 # Install htop
 sudo apt install htop
-# Edit /etc/fstab to automount the NAS at 192.168.1.102
-sudo echo //192.168.1.102/multimedia /mnt/nas-multimedia cifs username=jesse,password="hockey on the penis, plz", iocharset=utf8,file_mode=0777,dir_mode=0777 >> /etc/fstab
+# Edit /etc/fstab to automount the NAS at 192.168.1.169
+sudo echo //192.168.1.169/multimedia /mnt/nas-multimedia cifs username=jesse, iocharset=utf8,file_mode=0777,dir_mode=0777 >> /etc/fstab
