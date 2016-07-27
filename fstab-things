@@ -1,5 +1,3 @@
-# Install htop
-apt install htop
 # Edit /etc/fstab to automount the NAS at 192.168.1.169
 # The mounting commands reference a file /home/jesse/.nas-credentials which contains the CIFS login credentials in a format:
 #   username=<username>
