@@ -9,7 +9,7 @@ smovies=$t\Movies
 stv=$t\TV\ Shows
 
 # Set destination directories
-d=/media/jesse/boa/Videos/
+d=/home/jesse/test/targ/
 dmovies=$d\Movies
 dtv=$d\TV\ Shows
 
