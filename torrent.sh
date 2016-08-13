@@ -16,4 +16,4 @@ dtv=$d\TV\ Shows
 # Use filebot to write to destination with proper formatting, from the source directories
 ## Movies
 ### Movies are copied to $dmovies inside directories named with the movie titles. Actual files are named "title-year"
-filebot -rename --action copy $smovies\/* --format "{home}/test/targ/Movies/{n}-{y}/{n}-{y}" -non-strict
+filebot -rename --action copy $smovies\/* --format "{home}/test/targ/Movies/{n}\ ({y})/{n}\ ({y})" -non-strict
