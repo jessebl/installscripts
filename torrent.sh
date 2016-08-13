@@ -5,8 +5,8 @@
 
 # Set source directories
 s=/home/jesse/Downloads/Torrents/ # Allows for shorthanding the movies and tv files, since they should both have the same parent folder
-smovies=$t\Movies
-stv=$t\TV\ Shows
+smovies=$s\Movies
+stv=$s\TV\ Shows
 
 # Set destination directories
 d=/home/jesse/test/targ/
@@ -16,4 +16,4 @@ dtv=$d\TV\ Shows
 # Use filebot to write to destination with proper formatting, from the source directories
 ## Movies
 ### Movies are copied to $dmovies inside directories named with the movie titles. Actual files are named "title-year"
-filebot -rename --action copy $smovies\/* --format "{home}/test/targ/Movies/{n}/{n}-{y}" -non-strict
+filebot -rename --action copy $smovies\/* --format "{home}/test/targ/Movies/{n}-{y}/{n}-{y}" -non-strict
