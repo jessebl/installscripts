@@ -30,6 +30,7 @@ Plugin 'morhetz/gruvbox'
 "set background=dark    " Setting dark mode
 
 Plugin 'tomasr/molokai'
+colorscheme molokai
 
 Plugin 'tpope/vim-fugitive' 
 
@@ -41,3 +42,7 @@ Plugin 'scrooloose/syntastic'
 
 set number
 set noshowmode
+let g:syntastic_auto_loc_list=1
+let g:syntastic_disabled_filetypes=['html']
+let g:syntastic_enable_signs=1
+set mouse=a
