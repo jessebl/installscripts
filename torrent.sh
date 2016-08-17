@@ -12,9 +12,9 @@ smovies=$s/Movies  # Source directory for movies
 stv=$s/"TV Shows" # Source directory for TV Shows
 
 # Set destination directories
-d=/media/jesse/boa/Videos 
-dmovies=$d\/Movies # Destination directory for movies
-dtv=$d/"TV\ Shows" # Destination directory for TV Shows
+d=/media/jesse/boa/Videos # Destination directory parent
+dmovies=$d/Movies # Destination directory for movies
+dtv=$d/TV Shows # Destination directory for TV Shows
 
 # Use filebot to write to destination with proper formatting, from the source directories
 ## Movies
@@ -22,9 +22,9 @@ dtv=$d/"TV\ Shows" # Destination directory for TV Shows
 filebot -rename --action copy $smovies/* --format "$dmovies/{n}\ ({y})/{n}\ ({y})" -non-strict | tee logs/filebot1.txt # filebot copies media from $smovies to $dmovies with path renaming
 filebot -rename --action copy "$stv"/* --format "$dtv/{n}\ ({y})/Season {s}/{n}-{s00e00}-{t} " -non-strict | tee logs/filebot2.txt # filebot copies media from $stv to $dtv with path renaming
 
-# Use rsync to transfer from $d to the NAS
+# [optional] Use rsync to transfer from $d to the NAS
 
 d2=/mnt/nas-multimedia/jesse-videos # Secondary destination, transfer with rsync
 
 rsync -avz --progress $dmovies $d2 | tee logs/rsync1.txt # rsync transfers files from $dmovies to $d2
-rsync -az -vvv --progress --protect-args $dtv $d2 | tee logs/rsync2.txt # rsync transfers files from $dtv to $d2
+rsync -avz --progress --protect-args "$dtv" $d2 | tee logs/rsync2.txt # rsync transfers files from $dtv to $d2
