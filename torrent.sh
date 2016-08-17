@@ -14,7 +14,7 @@ stv=$s/"TV Shows" # Source directory for TV Shows
 # Set destination directories
 d=/media/jesse/boa/Videos # Destination directory parent
 dmovies=$d/Movies # Destination directory for movies
-dtv=$d/TV Shows # Destination directory for TV Shows
+dtv=$d/"TV Shows" # Destination directory for TV Shows
 
 # Use filebot to write to destination with proper formatting, from the source directories
 ## Movies
