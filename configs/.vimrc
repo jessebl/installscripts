@@ -27,13 +27,17 @@ filetype plugin indent on    " required
 
 Plugin 'morhetz/gruvbox'
 "colorscheme gruvbox
-set background=dark    " Setting dark mode
+"set background=dark    " Setting dark mode
+
+Plugin 'tomasr/molokai'
 
 Plugin 'tpope/vim-fugitive' 
 
 Plugin 'vim-airline/vim-airline'
 set laststatus=2
 let g:airline_powerline_fonts = 1
+
+Plugin 'scrooloose/syntastic'
 
 set number
 set noshowmode
