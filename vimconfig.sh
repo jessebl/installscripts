@@ -8,3 +8,4 @@ git clone https://github.com/powerline/fonts.git
 rm -rf fonts
 vi +PluginInstall +qall
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
+sed -i[no-transparency.vim] 's/ctermfg=252 ctermbg=233/ctermfg=252\ ctermbg=none/g' ~/.vim/bundle/molokai/colors/molokai.vim
