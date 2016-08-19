@@ -25,24 +25,37 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+" Colorschemes
+
+""Gruvbox
 Plugin 'morhetz/gruvbox'
 "colorscheme gruvbox
 "set background=dark    " Setting dark mode
 
+""Molokai
 Plugin 'tomasr/molokai'
 colorscheme molokai
 
+"Miscellaneous plugins
+
+"Git plugin
 Plugin 'tpope/vim-fugitive' 
 
+"Statusbar plugin
 Plugin 'vim-airline/vim-airline'
 set laststatus=2
 let g:airline_powerline_fonts = 1
 
+"Syntax checker (use :w to activate, or :Errors)
 Plugin 'scrooloose/syntastic'
-
-set number
-set noshowmode
 let g:syntastic_auto_loc_list=1
-let g:syntastic_disabled_filetypes=['html']
 let g:syntastic_enable_signs=1
-set mouse=a
+
+"Adds tab-completion in / searching
+Plugin 'vim-scripts/SearchComplete'
+
+
+"My own various additions
+set number "Show line numbers
+set mouse=a "Allow mouse interaction (can be nice for text-selection)
+
