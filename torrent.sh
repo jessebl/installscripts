@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #This script is to run on completion of torrents, and act on directories that group the torrents by label. To that end, make sure that you label your torrents and have your torrent client set to append the label to the savepath.
-# Dependencies: filebot
+# Dependencies: filebot calibre
 
 # Make log directory
 mkdir -p logs
@@ -10,6 +10,7 @@ mkdir -p logs
 s=/home/jesse/Downloads/Torrents # Allows for shorthanding the movies and tv files, since they should both have the same parent directory
 smovies=$s/Movies  # Source directory for movies
 stv=$s/"TV Shows" # Source directory for TV Shows
+sbooks=$s/Books
 
 # Set destination directories
 d=/media/jesse/boa/Videos # Destination directory parent
@@ -28,3 +29,6 @@ d2=/mnt/nas-multimedia/jesse-videos # Secondary destination, transfer with rsync
 
 rsync -avvhz --progress "$dmovies" "$d2" | tee logs/rsync1.txt # rsync transfers files from $dmovies to $d2
 rsync -avvhz --progress "$dtv" "$d2" | tee logs/rsync2.txt # rsync transfers files from $dtv to $d2
+
+# Ebooks Section
+calibredb add $books/*epub $books/*pdf $books/.mobi
