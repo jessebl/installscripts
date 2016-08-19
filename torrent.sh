@@ -26,5 +26,5 @@ filebot -rename --action copy "$stv"/* --format "$dtv/{n}\ ({y})/Season {s}/{n}-
 
 d2=/mnt/nas-multimedia/jesse-videos # Secondary destination, transfer with rsync
 
-rsync -avz --progress "$dmovies" "$d2" | tee logs/rsync1.txt # rsync transfers files from $dmovies to $d2
-rsync -avz --progress --protect-args "$dtv" "$d2" | tee logs/rsync2.txt # rsync transfers files from $dtv to $d2
+rsync -avvhz --progress "$dmovies" "$d2" | tee logs/rsync1.txt # rsync transfers files from $dmovies to $d2
+rsync -avvhz --progress "$dtv" "$d2" | tee logs/rsync2.txt # rsync transfers files from $dtv to $d2
