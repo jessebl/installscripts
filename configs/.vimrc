@@ -54,6 +54,9 @@ let g:syntastic_enable_signs=1
 "Adds tab-completion in / searching
 Plugin 'vim-scripts/SearchComplete'
 
+"Adds file tree/file viewer
+"Activate with :NERDTree
+Plugin 'scrooloose/nerdtree'
 
 "My own various additions
 set number "Show line numbers
