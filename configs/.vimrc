@@ -62,3 +62,5 @@ Plugin 'scrooloose/nerdtree'
 set number "Show line numbers
 set mouse=a "Allow mouse interaction (can be nice for text-selection)
 
+"Custom bindings
+"nmap <:Gcommit %> <C-C>
