@@ -31,4 +31,4 @@ rsync -avvhz --progress "$dmovies" "$d2" | tee logs/rsync1.txt # rsync transfers
 rsync -avvhz --progress "$dtv" "$d2" | tee logs/rsync2.txt # rsync transfers files from $dtv to $d2
 
 # Ebooks Section
-calibredb add $books/*epub $books/*pdf $books/.mobi
+calibredb add -r "$sbooks"
