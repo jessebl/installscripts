@@ -21,7 +21,7 @@ dtv=$d/"TV Shows" # Destination directory for TV Shows
 ## Movies
 ### Movies are copied to $dmovies inside directories named with the movie titles. Actual files are named "title-year"
 filebot -rename --action copy "$smovies"/* --format "$dmovies/{n}\ ({y})/{n}\ ({y})" -non-strict | tee logs/filebot1.txt # filebot copies media from $smovies to $dmovies with path renaming
-filebot -rename --action copy "$stv"/* --format "$dtv/{n}\ ({y})/Season {s}/{n}-{s00e00}-{t} " -non-strict | tee logs/filebot2.txt # filebot copies media from $stv to $dtv with path renaming
+filebot -rename --action copy "$stv"/* --format "$dtv/{n}\ ({y})/Season {s}/{n}-{s00e00}-{t}" -non-strict | tee logs/filebot2.txt # filebot copies media from $stv to $dtv with path renaming
 
 # [optional] Use rsync to transfer from $d to the NAS
 
