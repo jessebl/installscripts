@@ -1,4 +1,6 @@
 [global_config]
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  focus = mouse
   title_font = Ubuntu Mono derivative Powerline 13
   title_inactive_bg_color = "#444851"
   title_inactive_fg_color = "#7E51CC"
