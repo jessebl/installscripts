@@ -48,3 +48,4 @@ let g:syntastic_enable_signs=1
 set number
 set noshowmode
 set mouse=a
+set t_Co=256
