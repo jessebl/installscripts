@@ -25,35 +25,42 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-Plugin 'tomasr/molokai'
+Plugin 'tomasr/molokai' "The very best color scheme
 colorscheme molokai
 
-Plugin 'tpope/vim-fugitive' 
+Plugin 'tpope/vim-fugitive' "git wrapper for vim
 
-Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline' "Fancy and functional statusline that integrates with vim-fugitive/git
 set laststatus=2
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1 "Enables good-looking symbols in the statusline, but requires special fonts (that are installed with vimconfig.sh). Set to 0 to run vim-airline without special characters
 
-"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe' "Syntactic and semantic autocompletion
 
-"Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic' "Syntax/semantics checker (needs to be properly
+"configured
 let g:syntastic_auto_loc_list=1
 let g:syntastic_disabled_filetypes=['html']
 let g:syntastic_enable_signs=1
 
 Plugin 'tpope/vim-repeat'
 
-Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-surround' "More powerful manipulations of parens, brackets, HTML/CSS tags, etc
 
-set number
+set number "Show line numbers
 set noshowmode
-set mouse=a
-set t_Co=256
+set mouse=a "Enable mouse support
+set t_Co=256 "Set 256 colors in terminal for colorscheme (off by default in math lab
 
-noremap <C-J> <C-W><C-J>
-noremap <C-K> <C-W><C-K>
-noremap <C-L> <C-W><C-L>
-noremap <C-H> <C-W><C-H>
+let g:python_host_prog = '/usr/bin/python'
+setlocal foldmethod=indent "Automatic folding for python (za to fold/unfold, or :help fold for more info)
 
-let g:python_host_prog = '/usr/bin/python'    
-setlocal foldmethod=indent
+"""""""" CUSTOM BINDINGS """""""" 
+noremap <C-J> <C-W><C-J> "Custom bindings for navigating window splits
+noremap <C-K> <C-W><C-K> "Custom bindings for navigating window splits
+noremap <C-L> <C-W><C-L> "Custom bindings for navigating window splits
+noremap <C-H> <C-W><C-H> "Custom bindings for navigating window splits
+
+nnoremap <S-e> :! ./% <Enter>
+"Runs the current file according to shebang, with Shift-E
+
+"autocmd FileType python map <buffer> <S-e> :w<CR>:!/usr/bin/env python %<CR>
