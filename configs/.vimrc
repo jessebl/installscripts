@@ -25,10 +25,6 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-Plugin 'morhetz/gruvbox'
-"colorscheme gruvbox
-"set background=dark    " Setting dark mode
-
 Plugin 'tomasr/molokai'
 colorscheme molokai
 
@@ -38,19 +34,26 @@ Plugin 'vim-airline/vim-airline'
 set laststatus=2
 let g:airline_powerline_fonts = 1
 
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_disabled_filetypes=['html']
 let g:syntastic_enable_signs=1
+
+Plugin 'tpope/vim-repeat'
+
+Plugin 'tpope/vim-surround'
 
 set number
 set noshowmode
 set mouse=a
 set t_Co=256
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+noremap <C-J> <C-W><C-J>
+noremap <C-K> <C-W><C-K>
+noremap <C-L> <C-W><C-L>
+noremap <C-H> <C-W><C-H>
+
+let g:python_host_prog = '/usr/bin/python'    
+setlocal foldmethod=indent
