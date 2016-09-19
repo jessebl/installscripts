@@ -47,6 +47,9 @@ Plugin 'tpope/vim-repeat'
 
 Plugin 'tpope/vim-surround' "More powerful manipulations of parens, brackets, HTML/CSS tags, etc
 
+Plugin 'scrooloose/nerdtree' "File tree explorer
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
 set number "Show line numbers
 set noshowmode
 set mouse=a "Enable mouse support
