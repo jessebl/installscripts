@@ -33,6 +33,7 @@ Plugin 'tpope/vim-fugitive' "git wrapper for vim
 Plugin 'vim-airline/vim-airline' "Fancy and functional statusline that integrates with vim-fugitive/git
 set laststatus=2
 let g:airline_powerline_fonts = 1 "Enables good-looking symbols in the statusline, but requires special fonts (that are installed with vimconfig.sh). Set to 0 to run vim-airline without special characters
+let g:airline_section_c = '%F' "Shows filepath
 
 "Plugin 'Valloric/YouCompleteMe' "Syntactic and semantic autocompletion
 
@@ -53,6 +54,8 @@ set t_Co=256 "Set 256 colors in terminal for colorscheme (off by default in math
 
 let g:python_host_prog = '/usr/bin/python'
 setlocal foldmethod=indent "Automatic folding for python (za to fold/unfold, or :help fold for more info)
+
+set colorcolumn=80
 
 """""""" CUSTOM BINDINGS """""""" 
 noremap <C-J> <C-W><C-J> "Custom bindings for navigating window splits
