@@ -8,6 +8,11 @@ This is my repo for scripts, configuration files, etc. I currently use Ubuntu-ba
 This script set up configurations for the following programs:
 * [terminator](https://en.wikipedia.org/wiki/Terminator_(terminal_emulator))
 
+###installscript.sh
+This script installs a handful of favorite programs. For brevity's sake, look at the `apt install` line of the script to see and modify the programs to be installed. Some repositories are also added for software installation.
+
+**you must run it as root**: `sudo ./nautilus-to-nemo.sh`
+
 ###nautilus-to-nemo.sh
 This script replaces Nautilus (Ubuntu's default file manager) with Nemo (which is more feature-filled, if not to a KDE-like degree). Nemo will be installed and set as the default file manager.
 
