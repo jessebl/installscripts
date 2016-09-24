@@ -8,6 +8,12 @@ This is my repo for scripts, configuration files, etc. I currently use Ubuntu-ba
 This script set up configurations for the following programs:
 * [terminator](https://en.wikipedia.org/wiki/Terminator_(terminal_emulator))
 
+###nautilus-to-nemo.sh
+This script replaces Ubuntu's default file manager (Nautilus) with Nemo (which is more feature-filled, if not to a KDE-like degree).
+
+Because nautilus-to-nemo.sh uses APT to add a PPA, update repository lists, and install nemo, **you must run it as root**: 
+`sudo nautilus-to-nemo.sh`
+
 ###vimconfig.sh
 This script sets up [vim](http://www.vim.org/) just how I like it. If you want neovim configured the same way, check out neovim-setup.sh.
 
