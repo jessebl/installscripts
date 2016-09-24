@@ -4,7 +4,7 @@ This is my repo for scripts, configuration files, etc. I currently use Ubuntu-ba
 
 ## Scripts
 ###vimconfig.sh
-This script sets up vim just how I like it. If you want neovim configured the same way, check out neovim-setup.sh.
+This script sets up [vim](http://www.vim.org/) just how I like it. If you want neovim configured the same way, check out neovim-setup.sh.
 
 The script will:
 * Install Vundle, a vim plugin manager
@@ -12,6 +12,8 @@ The script will:
 * Download and install patched Powerline fonts for use with vim-airline (see below)
 * Use Vundle to install all plugins called for in ~/.vimrc
 * Adds a line to your ~/.bashrc to use vim as the default $MANPAGER
+
+*Note:* When running for the first time, an error message about the molokai colorscheme not being found. Ignore and hit enter.
 
 ###general-configs.sh
 This script set up configurations for the following programs:
