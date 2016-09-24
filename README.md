@@ -22,7 +22,7 @@ Because nautilus-to-nemo.sh uses APT to add a PPA, update repository lists, and 
 This script follows the instructions from neovim's `:help nvim-from-vim`. Refers neovim to vim's configuration file (~/.vimrc). Also aliases vi and vim to nvim in bash (running `vi` will now run neovim instead).
 
 ### vimconfig.sh
-This script sets up [vim](http://www.vim.org/) just how I like it. If you want neovim configured the same way, check out [neovim-setup.sh](### neovim-setup.sh).
+This script sets up [vim](http://www.vim.org/) just how I like it. If you want neovim configured the same way, check out [neovim-setup.sh](#neovim-setup.sh).
 
 The script will:
 * Install Vundle, a vim plugin manager
