@@ -6,7 +6,7 @@ This is my repo for scripts, configuration files, etc. I currently use Ubuntu-ba
 
 ## Scripts
 
-### general-configs.sh
+### [general-configs.sh](general-configs.sh)
 This script set up configurations for the following programs:
 * [terminator](https://en.wikipedia.org/wiki/Terminator_(terminal_emulator))
 
