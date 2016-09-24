@@ -3,6 +3,11 @@
 This is my repo for scripts, configuration files, etc. I currently use Ubuntu-based distros, at least for now, so most scripts will work for those. Some of the code (particularly for doing specific tasks, like the nautilus-to-nemo script) has been pulled from various places on the internet, and moving forward I will try to source them in the body of the code itself.
 
 ## Scripts
+
+###general-configs.sh
+This script set up configurations for the following programs:
+* [terminator](https://en.wikipedia.org/wiki/Terminator_(terminal_emulator))
+
 ###vimconfig.sh
 This script sets up [vim](http://www.vim.org/) just how I like it. If you want neovim configured the same way, check out neovim-setup.sh.
 
@@ -14,7 +19,3 @@ The script will:
 * Adds a line to your ~/.bashrc to use vim as the default $MANPAGER
 
 *Note:* When running for the first time, an error message about the molokai colorscheme not being found. Ignore and hit enter.
-
-###general-configs.sh
-This script set up configurations for the following programs:
-* terminator
