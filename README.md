@@ -13,7 +13,7 @@ This script set up configurations for the following programs:
 ### [installscript.sh](installscript.sh)
 This script installs a handful of favorite programs. For brevity's sake, look at the `apt install` line of the script to see and modify the programs to be installed. Some repositories are also added for software installation.
 
-**you must run it as root**: `sudo ./nautilus-to-nemo.sh`
+**You must run it as root**: `sudo ./nautilus-to-nemo.sh`
 
 ### [nautilus-to-nemo.sh](nautilus-to-nemo.sh)
 This script replaces Nautilus (Ubuntu's default file manager) with Nemo (which is more feature-filled, if not to a KDE-like degree). Nemo will be installed and set as the default file manager.
@@ -33,4 +33,4 @@ The script will:
 * Use Vundle to install all plugins called for in ~/.vimrc
 * Adds a line to your ~/.bashrc to use vim as the default $MANPAGER
 
-*Note:* When running for the first time, an error message about the molokai colorscheme not being found. Ignore and hit enter.
+*Note:*~When running for the first time, an error message about the molokai colorscheme not being found. Ignore and hit enter.~ Commit e461728 should make it so that this script can run without any user interaction.
