@@ -11,7 +11,7 @@ This is my repo for scripts, configuration files, etc. I currently use Ubuntu-ba
 * [neovim-setup.sh](#neovim-setupsh)
 * [torrent.sh](#torrentsh)
 * [vimconfig.sh](#vimconfigsh)
-  * [.vimrc (vim configuration file) highlights)](#vimrc-highlights)
+  * [vim configuration file highlights](#vimrc-highlights)
 
 ### [general-configs.sh](general-configs.sh)
 This script set up configurations for the following programs:
