@@ -23,6 +23,15 @@ Because nautilus-to-nemo.sh uses APT to add a PPA, update repository lists, and 
 ### [neovim-setup.sh](neovim-setup.sh)
 This script follows the instructions from neovim's `:help nvim-from-vim`. Refers neovim to vim's configuration file (~/.vimrc). Also aliases vi and vim to nvim in bash (running `vi` will now run neovim instead).
 
+### [torrent.sh](torrent.sh)
+This script sorts media files in the designated folders. As-is, it scans designated directories for specific media types, and copies them to a new location with cleaned up filenames and directory structures. It also copies to a secondary location like a NAS or other whatever.
+
+To use, just make sure that you have renamed all the filepaths appropriately. I have tried to make the file as easy as possible to edit, but please send me any suggestions for readability, modularity, etc.
+
+#### Dependencies:
+* [filebot](http://www.filebot.net/) for scanning, renaming, and reorganizing of movies an TV shows
+* [calibre](https://calibre-ebook.com/) for e-book management (pretty potional)
+
 ### [vimconfig.sh](vimconfig.sh)
 This script sets up [vim](http://www.vim.org/) just how I like it. If you want neovim configured the same way, check out [neovim-setup.sh](#neovim\-setup.sh).
 
