@@ -26,14 +26,14 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 Plugin 'tomasr/molokai' "The very best color scheme
-colorscheme molokai
+silent! colorscheme molokai
 
 Plugin 'tpope/vim-fugitive' "git wrapper for vim
 
 Plugin 'vim-airline/vim-airline' "Fancy and functional statusline that integrates with vim-fugitive/git
 set laststatus=2
 let g:airline_powerline_fonts = 1 "Enables good-looking symbols in the statusline, but requires special fonts (that are installed with vimconfig.sh). Set to 0 to run vim-airline without special characters
-let g:airline_section_c = '%F' "Shows filepath
+"let g:airline_section_c = '%F' "Shows filepath
 
 "Plugin 'Valloric/YouCompleteMe' "Syntactic and semantic autocompletion
 
@@ -70,3 +70,4 @@ nnoremap <S-e> :! ./% <Enter>
 "Runs the current file according to shebang, with Shift-E
 
 "autocmd FileType python map <buffer> <S-e> :w<CR>:!/usr/bin/env python %<CR>
+
