@@ -43,3 +43,12 @@ The script will:
 * Adds a line to your ~/.bashrc to use vim as the default $MANPAGER
 
 *Note:* ~~When running for the first time, an error message about the molokai colorscheme not being found. Ignore and hit enter.~~ Commit e461728 should make it so that this script can run without any user interaction.
+
+#### [.vimrc](configs/.vimrc) highlights
+* Vundle, a vim plugin manager
+* [molokai colorscheme](https://github.com/tomasr/molokai)
+* [vim-fugitive](https://github.com/tpope/vim-fugitive)-git commmands from within vim
+* [vim-airline](https://github.com/vim-airline/vim-airline)-an attractive and functional statusline
+* [NERDTree](https://github.com/scrooloose/nerdtree)-a file tree explorer (open with `:NERTree`)
+* Mouse support turned on
+* Run currently opened file (according to its shebang) with Shift+e
