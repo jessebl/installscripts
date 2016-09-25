@@ -33,4 +33,4 @@ The script will:
 * Use Vundle to install all plugins called for in ~/.vimrc
 * Adds a line to your ~/.bashrc to use vim as the default $MANPAGER
 
-*Note:*~When running for the first time, an error message about the molokai colorscheme not being found. Ignore and hit enter.~ Commit e461728 should make it so that this script can run without any user interaction.
+*Note:* ~~When running for the first time, an error message about the molokai colorscheme not being found. Ignore and hit enter.~~ Commit e461728 should make it so that this script can run without any user interaction.
