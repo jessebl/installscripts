@@ -5,6 +5,13 @@ This is my repo for scripts, configuration files, etc. I currently use Ubuntu-ba
 * [Scripts](#scripts)
 
 ## Scripts
+* [generalconfigs.sh](#general-configssh)
+* [installscript.sh](#installscripsh)
+* [nautilus-to-nemo.sh](#nautilus-to-nemosh)
+* [neovim-setup.sh](#neovim-setupsh)
+* [torrent.sh](#torrentsh)
+* [vimconfig.sh](#vimconfigsh)
+  * [.vimrc (vim configuration file) highlights)](#vimrc-highlights)
 
 ### [general-configs.sh](general-configs.sh)
 This script set up configurations for the following programs:
@@ -33,7 +40,7 @@ To use, just make sure that you have renamed all the filepaths appropriately. I 
 * [calibre](https://calibre-ebook.com/) for e-book management (pretty potional)
 
 ### [vimconfig.sh](vimconfig.sh)
-This script sets up [vim](http://www.vim.org/) just how I like it. If you want neovim configured the same way, check out [neovim-setup.sh](#neovim\-setup.sh).
+This script sets up [vim](http://www.vim.org/) just how I like it. If you want neovim configured the same way, check out [neovim-setup.sh](#neovim-setupsh).
 
 The script will:
 * Install Vundle, a vim plugin manager
