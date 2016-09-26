@@ -48,17 +48,19 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround' "More powerful manipulations of parens, brackets, HTML/CSS tags, etc
 
 Plugin 'scrooloose/nerdtree' "File tree explorer
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'Xuyuanp/nerdtree-git-plugin' "git plugin for file tree explorer
 
 set number "Show line numbers
 set noshowmode
+set showcmd "Displays command letters as you enter them
 set mouse=a "Enable mouse support
 set t_Co=256 "Set 256 colors in terminal for colorscheme (off by default in math lab
 
 let g:python_host_prog = '/usr/bin/python'
 setlocal foldmethod=indent "Automatic folding for python (za to fold/unfold, or :help fold for more info)
 
-set colorcolumn=80
+set colorcolumn=80 "Colors vertical line 80 (nice for keeping line-length in mind)
+
 
 """""""" CUSTOM BINDINGS """""""" 
 noremap <C-J> <C-W><C-J> "Custom bindings for navigating window splits
