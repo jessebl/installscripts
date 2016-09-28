@@ -40,7 +40,7 @@ To use, just make sure that you have renamed all the filepaths appropriately. I 
 ### vimconfig.sh
 This script sets up [vim](http://www.vim.org/) just how I like it. If you want neovim configured the same way, check out [neovim-setup.sh](#neovim-setupsh).
 
-![My configured vim (well, neovim)](http://imgur.com/5AkLfHF)
+![My configured vim (well, neovim)](https://i.imgur.com/5AkLfHF.png)
 
 The script will:
 * Install Vundle, a vim plugin manager
