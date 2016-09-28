@@ -35,7 +35,7 @@ To use, just make sure that you have renamed all the filepaths appropriately. I 
 
 #### Dependencies:
 * [filebot](http://www.filebot.net/) for scanning, renaming, and reorganizing of movies an TV shows
-* [calibre](https://calibre-ebook.com/) for e-book management (pretty potional)
+* [calibre](https://calibre-ebook.com/) for e-book management (pretty optional)
 
 ### vimconfig.sh
 This script sets up [vim](http://www.vim.org/) just how I like it. If you want neovim configured the same way, check out [neovim-setup.sh](#neovim-setupsh).
@@ -51,7 +51,7 @@ The script will:
 
 *Note:* ~~When running for the first time, an error message about the molokai colorscheme not being found. Ignore and hit enter.~~ Commit e461728 should make it so that this script can run without any user interaction.
 
-#### .vimrc
+#### .vimrc highlights
 * Vundle, a vim plugin manager
 * [molokai colorscheme](https://github.com/tomasr/molokai)
 * [vim-fugitive](https://github.com/tpope/vim-fugitive)-git commmands from within vim
