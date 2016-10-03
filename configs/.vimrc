@@ -50,6 +50,8 @@ Plugin 'tpope/vim-surround' "More powerful manipulations of parens, brackets, HT
 Plugin 'scrooloose/nerdtree' "File tree explorer
 Plugin 'Xuyuanp/nerdtree-git-plugin' "git plugin for file tree explorer
 
+Plugin 'ctrlpvim/ctrlp.vim'
+
 set number "Show line numbers
 set noshowmode
 set showcmd "Displays command letters as you enter them
