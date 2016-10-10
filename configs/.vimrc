@@ -1,4 +1,4 @@
-" Vundle section (https://github.com/VundleVim/Vundle.vim#quick-start)
+"""" Begin Vundle section (https://github.com/VundleVim/Vundle.vim#quick-start)
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -24,7 +24,10 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+"""" End Vundle section
 
+
+""""Plugin Section
 Plugin 'tomasr/molokai' "The very best color scheme
 silent! colorscheme molokai
 
@@ -58,6 +61,8 @@ Plugin 'scrooloose/nerdcommenter' "Allows you to comment lines in and out
 
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'} "Uses <C-e> to autocomplete HTML
 
+"
+"""" Configuration section
 set number "Show line numbers
 set noshowmode
 set showcmd "Displays command letters as you enter them
