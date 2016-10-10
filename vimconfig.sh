@@ -2,7 +2,9 @@
 # This script sets up a new .vimrc, as well as Vundle for the plugin manager. The plugins include airline (with patched fonts).
 
 # Download Vundle, a plug-in manager
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+if [ -f $HOME/.vim/bundle/Vundle.vim]; then
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
 # Load in .vimrc (vim config file) from this repo
 cp configs/.vimrc ~/.vimrc
 # Download patched fonts for airline (special status bar at the bottom)
@@ -19,6 +21,6 @@ fi
 # Use Vundle to install all the programs called for by .vimrc
 vi +PluginInstall +qall
 # Makes vim the default manpager (mostly for aesthetic purposes, but vim is such a functional home too)
-echo 'export MANPAGER="col -b | vim -c 'set ft=man ts=8 nomod nolist nonu' -c 'nnoremap i <nop>' -"' >> ~/.bashrc
+#echo 'export MANPAGER="col -b | vim -c 'set ft=man ts=8 nomod nolist nonu' -c 'nnoremap i <nop>' -"' >> ~/.bashrc
 # This line removes the background color from Molokai (the colorscheme set by .vimrc) to allow for transparent terminals. Commented out by default.
 #sed -i[no-transparency.vim] 's/ctermfg=252 ctermbg=233/ctermfg=252\ ctermbg=none\ \"ctermbg=233/g' ~/.vim/bundle/molokai/colors/molokai.vim
