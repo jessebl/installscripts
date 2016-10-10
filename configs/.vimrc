@@ -43,14 +43,20 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_disabled_filetypes=['html']
 let g:syntastic_enable_signs=1
 
-Plugin 'tpope/vim-repeat'
-
+Plugin 'tpope/vim-repeat' "Enables '.' repeating for use with plugin maps. Used for tpope/vim-surround
 Plugin 'tpope/vim-surround' "More powerful manipulations of parens, brackets, HTML/CSS tags, etc
+
+Plugin 'ctrlpvim/ctrlp.vim' "Among other things, enables autocomplete for items not in the current file
 
 Plugin 'scrooloose/nerdtree' "File tree explorer
 Plugin 'Xuyuanp/nerdtree-git-plugin' "git plugin for file tree explorer
 
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'majutsushi/tagbar' "Browse ctags (functions, variables, etc.) in a split window
+"Needs exuberant-ctags installed (sudo apt install exuberant-ctags)
+
+Plugin 'scrooloose/nerdcommenter' "Allows you to comment lines in and out
+
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'} "Uses <C-e> to autocomplete HTML
 
 set number "Show line numbers
 set noshowmode
@@ -64,14 +70,16 @@ setlocal foldmethod=indent "Automatic folding for python (za to fold/unfold, or 
 set colorcolumn=80 "Colors vertical line 80 (nice for keeping line-length in mind)
 
 
-"""""""" CUSTOM BINDINGS """""""" 
-noremap <C-J> <C-W><C-J> "Custom bindings for navigating window splits
-noremap <C-K> <C-W><C-K> "Custom bindings for navigating window splits
-noremap <C-L> <C-W><C-L> "Custom bindings for navigating window splits
-noremap <C-H> <C-W><C-H> "Custom bindings for navigating window splits
+"""""""" CUSTOM BINDINGS """"""""
+noremap <Leader>j <C-W><C-J> "Custom bindings for navigating window splits
+noremap <Leader>k <C-W><C-K> "Custom bindings for navigating window splits
+noremap <Leader>l <C-W><C-L> "Custom bindings for navigating window splits
+noremap <Leader>h <C-W><C-H> "Custom bindings for navigating window splits
 
-nnoremap <S-e> :! ./% <Enter>
+"nnoremap <S-e> :! ./% <Enter>
 "Runs the current file according to shebang, with Shift-E
+
+nnoremap <S-e> :!python3 % <Enter>
 
 "autocmd FileType python map <buffer> <S-e> :w<CR>:!/usr/bin/env python %<CR>
 
