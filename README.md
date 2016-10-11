@@ -56,6 +56,6 @@ The script will:
 * [molokai colorscheme](https://github.com/tomasr/molokai)
 * [vim-fugitive](https://github.com/tpope/vim-fugitive)-git commmands from within vim
 * [vim-airline](https://github.com/vim-airline/vim-airline)-an attractive and functional statusline
-* [NERDTree](https://github.com/scrooloose/nerdtree)-a file tree explorer (open with `:NERTree`)
+* [NERDTree](https://github.com/scrooloose/nerdtree)-a file tree explorer (open with `:NERDTree`)
 * Mouse support turned on
 * Run currently opened file (according to its shebang) with Shift+e
