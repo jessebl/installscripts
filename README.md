@@ -59,3 +59,7 @@ The script will:
 * [NERDTree](https://github.com/scrooloose/nerdtree)-a file tree explorer (open with `:NERDTree`)
 * Mouse support turned on
 * Run currently opened file (according to its shebang) with Shift+e
+* Python specific:
+  * Code folding (`za` to fold/unfold, or `:help fold` for more info)
+  * Run file in python3 interpreter with <S-e> (Shift + E)
+* And much more! Check the comments in .vimrc for details.

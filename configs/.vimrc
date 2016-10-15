@@ -70,7 +70,7 @@ set mouse=a "Enable mouse support
 set t_Co=256 "Set 256 colors in terminal for colorscheme (off by default in math lab
 
 let g:python_host_prog = '/usr/bin/python'
-setlocal foldmethod=indent "Automatic folding for python (za to fold/unfold, or :help fold for more info)
+autocmd FileType python setlocal foldmethod=indent "Automatic folding for python (za to fold/unfold, or :help fold for more info)
 
 set colorcolumn=80 "Colors vertical line 80 (nice for keeping line-length in mind)
 
@@ -81,10 +81,9 @@ noremap <Leader>k <C-W><C-K> "Custom bindings for navigating window splits
 noremap <Leader>l <C-W><C-L> "Custom bindings for navigating window splits
 noremap <Leader>h <C-W><C-H> "Custom bindings for navigating window splits
 
-"nnoremap <S-e> :! ./% <Enter>
+nnoremap <S-e> :! ./% <Enter>
 "Runs the current file according to shebang, with Shift-E
+"Note--This will be overwritten by any of the specific interpreters in
+"subsequent lines
 
-nnoremap <S-e> :!python3 % <Enter>
-
-"autocmd FileType python map <buffer> <S-e> :w<CR>:!/usr/bin/env python %<CR>
-
+autocmd FileType python map <buffer> <S-e> :w<CR>:!/usr/bin/env python %<CR>
