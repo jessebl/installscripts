@@ -89,3 +89,4 @@ nnoremap <S-e> :! ./% <Enter>
 "subsequent lines
 
 autocmd FileType python map <buffer> <S-e> :w<CR>:!/usr/bin/env python %<CR>
+"In a python file, Shift+E runs the file in the python3 interpreter
