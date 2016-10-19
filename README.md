@@ -63,3 +63,9 @@ The script will:
   * Code folding (`za` to fold/unfold, or `:help fold` for more info)
   * Run file in python3 interpreter with <S-e> (Shift + E)
 * And much more! Check the comments in .vimrc for details.
+
+## Files
+* Ubuntu Mono Derivative Powerline and Indentline
+
+### UbuntuIndentAndPowerline-Regular.ttf
+This is my patched Ubuntu mono font for use with vim.airline and indentline. You will need to set your terminal to use it after either manually adding it to ~/.local/share/fonts or running [my vimconfig script](#vimconfigsh). See configs/.vimrc for notes on what these do. Licensed under the [Ubuntu font license](http://font.ubuntu.com/licence/), a free license. I adapted the Ubuntu mono font from [powerline fonts](https://github.com/powerline/fonts) using [Yggdroot's instructions](https://github.com/Yggdroot/indentLine#font-patching). I added the font file here for ease of use for myself and others.
