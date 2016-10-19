@@ -61,7 +61,10 @@ Plugin 'scrooloose/nerdcommenter' "Allows you to comment lines in and out
 
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'} "Uses <C-e> to autocomplete HTML
 
-"
+"Plugin 'Yggdroot/indentLine' "Visually illustrates indentation section, but
+"requires font patched with the character below.
+let g:indentLine_char = "︙"
+
 """" Configuration section
 set number "Show line numbers
 set noshowmode
