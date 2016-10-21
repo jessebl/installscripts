@@ -49,10 +49,10 @@ let g:syntastic_enable_signs=1
 Plugin 'tpope/vim-repeat' "Enables '.' repeating for use with plugin maps. Used for tpope/vim-surround
 Plugin 'tpope/vim-surround' "More powerful manipulations of parens, brackets, HTML/CSS tags, etc
 
-Plugin 'ctrlpvim/ctrlp.vim' "Among other things, enables autocomplete for items not in the current file
+"Plugin 'ctrlpvim/ctrlp.vim' "Among other things, enables autocomplete for items not in the current file
 
-Plugin 'scrooloose/nerdtree' "File tree explorer
-Plugin 'Xuyuanp/nerdtree-git-plugin' "git plugin for file tree explorer
+"Plugin 'scrooloose/nerdtree' "File tree explorer
+"Plugin 'Xuyuanp/nerdtree-git-plugin' "git plugin for file tree explorer
 
 Plugin 'majutsushi/tagbar' "Browse ctags (functions, variables, etc.) in a split window
 "Needs exuberant-ctags installed (sudo apt install exuberant-ctags)
