@@ -87,3 +87,5 @@ source /home/jesse/.bash_aliases
 
 DEFAULT_USER=jesse
 export MANPAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
+
+export TERM=xterm-256color
