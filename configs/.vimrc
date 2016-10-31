@@ -91,5 +91,5 @@ nnoremap <S-e> :! ./% <Enter>
 "Note--This will be overwritten by any of the specific interpreters in
 "subsequent lines
 
-autocmd FileType python map <buffer> <S-e> :w<CR>:!/usr/bin/env python %<CR>
+autocmd FileType python map <buffer> <S-e> :w<CR>:!/usr/bin/env python3 %<CR>
 "In a python file, Shift+E runs the file in the python3 interpreter
