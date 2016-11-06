@@ -10,6 +10,8 @@ apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
 add-apt-repository -y "deb http://linux.dropbox.com/ubuntu $(lsb_release -sc) main"
 #Neovim repository
 add-apt-repository -y ppa:neovim-ppa/unstable
+#Seafile repositories
+add-apt-repository -y ppa:seafile/seafile-client
 
 # Update repositories
 apt update
@@ -17,11 +19,7 @@ apt update
 apt -y upgrade
 
 # Install a bunch of packages
-apt install -y vim synapse redshift-gtk chromium-browser
-pepperflashplugin-nonfree synaptic unity-tweak-tool indicator-multiload keepass2
-dropbox numix-icon-theme-circle compizconfig-settings-manager
-compiz-plugins-extra pithos clementine git cowsay xdotool ssh sshfs screenfetch
-mtpfs kodi steam libnotify-bin notifyosdconfig gimp calibre neovim zsh
+apt install -y vim synapse redshift-gtk chromium-browser pepperflashplugin-nonfree synaptic unity-tweak-tool indicator-multiload keepass2 dropbox numix-icon-theme-circle compizconfig-settings-manager compiz-plugins-extra pithos clementine git cowsay xdotool ssh sshfs screenfetch mtpfs kodi steam libnotify-bin notifyosdconfig gimp calibre neovim zsh seafile-gui
 
 # Clean up unnecessary dependencies
 apt -y autoremove
