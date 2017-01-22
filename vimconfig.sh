@@ -38,11 +38,11 @@ fi
 vi +PluginClean +PluginInstall +qall
 # If less in the manpager, makes vim the default manpager (mostly for aesthetic purposes, but vim is such a functional home too)
 # Found in Edit 2 on https://zameermanji.com/blog/2012/12/30/using-vim-as-manpager/
-if [ "$MANPAGER" == "less" ]; then
-	#echo 'export MANPAGER="/bin/sh -c \"col -b | nvim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""' >> ~/.bashrc
-	echo Your manpager has been changed to vim from less
-else
-	echo Your man pager had already been changed to vim
-fi
+#if [ "$MANPAGER" == "less" ]; then
+	#echo 'export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""' >> $HOME/.bashrc
+	#echo Your manpager has been changed to vim from less
+#else
+	#echo Your man pager had already been changed to vim
+#fi
 # This line removes the background color from Molokai (the colorscheme set by .vimrc) to allow for transparent terminals. Commented out by default.
 #sed -i[no-transparency.vim] 's/ctermfg=252 ctermbg=233/ctermfg=252\ ctermbg=none\ \"ctermbg=233/g' ~/.vim/bundle/molokai/colors/molokai.vim
