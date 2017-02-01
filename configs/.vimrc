@@ -132,7 +132,6 @@ au BufNewFile,BufRead,BufEnter *.h,*.cpp,*.cc map  <Leader>c :w<cr>:!g++ %<cr>
 au BufNewFile,BufRead,BufEnter *.h,*.cpp,*.cc map <Leader>r :!./a.out<cr>
 "au BufNewFile,BufRead,BufEnter *.h,*.cpp,*.cc map ;l o<esc>75i/<esc>o<esc>
 au BufNewFile,BufRead,BufEnter *.h,*.cpp,*.cc map <Leader>m :make<cr>
-augroup END
 
 Plugin 'https://github.com/vim-syntastic/syntastic'
 set statusline+=%#warningmsg#
@@ -143,3 +142,4 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+augroup END
