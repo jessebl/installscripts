@@ -95,6 +95,7 @@ nnoremap <S-e> :! ./% <Enter>
 
 autocmd FileType python map <buffer> <S-e> :w<CR>:!/usr/bin/env python3 %<CR>
 "In a python file, Shift+E runs the file in the python3 interpreter
+autocmd FileType cpp map <buffer> <S-e> :w<CR>:!g++ -c %<CR>:!./a.out<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Courtesy of rdlugosz at https://github.com/rdlugosz/dotfiles/blob/604a8faeee42f6bd7f0224a953eef2962ee61652/vimrc#L488-L509
@@ -119,3 +120,26 @@ autocmd FileType python map <buffer> <S-e> :w<CR>:!/usr/bin/env python3 %<CR>
 "set statusline+=%c,     "cursor column
 "set statusline+=%l/%L   "cursor line/total lines
 "set statusline+=\ (%P)  "escaped space, percent through file
+
+augroup C++
+au BufEnter *.h,*.cpp,*.cc cd %:p:h
+"au BufNewFile,BufRead,BufEnter *.h,*.cpp,*.cc set formatoptions=tcqr
+au BufNewFile,BufRead,BufEnter *.h,*.cpp,*.cc set shiftwidth=4
+"au BufNewFile,BufRead,BufEnter *.h,*.cpp,*.cc set smarttab 
+"au BufNewFile,BufRead,BufEnter *.h,*.cpp,*.cc set cindent
+"au BufNewFile,BufRead,BufEnter *.h,*.cpp,*.cc set nospell
+au BufNewFile,BufRead,BufEnter *.h,*.cpp,*.cc map  <Leader>c :w<cr>:!g++ %<cr>
+au BufNewFile,BufRead,BufEnter *.h,*.cpp,*.cc map <Leader>r :!./a.out<cr>
+"au BufNewFile,BufRead,BufEnter *.h,*.cpp,*.cc map ;l o<esc>75i/<esc>o<esc>
+au BufNewFile,BufRead,BufEnter *.h,*.cpp,*.cc map <Leader>m :make<cr>
+augroup END
+
+Plugin 'https://github.com/vim-syntastic/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
