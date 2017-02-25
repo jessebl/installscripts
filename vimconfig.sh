@@ -17,7 +17,7 @@ cp configs/.vimrc ~/.vimrc
 # Note: you will have to change the font of your terminal manually to actually make use of the fonts. The fonts as a whole are called "Powerline patched", so the font that I might load would be "Ubuntu Mono derivative Powerline Regular." I find that that font at size 13 is a suitable replacement in gnome-terminal, the default Ubuntu terminal. More documentation can be found in the README.md for the powerline fonts.
 # If the patched fonts for vim-airline have not been installed (as evidenced by
 #the presence of the Ubuntu font), then install them.
-if [ ! -f /home/jesse/.local/share/fonts/UbuntuIndentAndPowerline-Regular.ttf]; then
+if [ ! -f $HOME/.local/share/fonts/UbuntuIndentAndPowerline-Regular.ttf]; then
 	echo "Installing patched fonts for vim-airline (the fancy statusbar) and"
 	echo "indentline (dotted, vertical lines in indents)"
 	cp UbuntuIndentAndPowerline-Regular.ttf $HOME/.local/fonts/UbuntuIndentAndPowerline-Regular.ttf
