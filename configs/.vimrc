@@ -67,6 +67,9 @@ Plugin 'airblade/vim-gitgutter'
 "requires font patched with the character below.
 let g:indentLine_char = "︙"
 
+"Cleaner, more functional file manager
+Plugin 'tpope/vim-vinegar'
+
 """" Configuration section
 set number "Show line numbers
 set noshowmode
