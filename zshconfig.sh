@@ -7,6 +7,9 @@
 # Taken from https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH#installing-zsh
 chsh -s $(which zsh)
 
+# Install Oh-My-ZSH
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
 # Copies over zsh config file
 cp configs/.zshrc $HOME/.zshrc
 echo "The zsh settings have been applied."
