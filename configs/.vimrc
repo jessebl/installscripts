@@ -71,6 +71,7 @@ let g:indentLine_char = "︙"
 Plugin 'tpope/vim-vinegar'
 
 """" Configuration section
+syntax on
 set number "Show line numbers
 set noshowmode
 set showcmd "Displays command letters as you enter them
