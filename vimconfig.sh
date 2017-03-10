@@ -1,6 +1,9 @@
 #/bin/bash
 # This script sets up a new .vimrc, as well as Vundle for the plugin manager. The plugins include airline (with patched fonts).
 fontLocation=$HOME/.local/share/fonts
+if [[ `uname` == 'Darwin' ]]; then
+	fontLocation=$HOME/Library/Fonts
+fi
 
 # Download Vundle, a plug-in manager
 if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
