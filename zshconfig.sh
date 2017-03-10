@@ -4,16 +4,23 @@
 # configs/.zshrc
 set -e
 
+# Install Oh-My-ZSH
+if [ ! -d $HOME/.oh-my-zsh ]; then
+	if command -v wget; then
+		sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+	elif command -v curl; then
+		sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+	else
+		echo "Please install wget or curl"
+		return -1
+	fi
+else
+	echo "Oh-my-zsh already downloaded"
+fi
+
 # Changes shell to zsh
 # Taken from https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH#installing-zsh
 chsh -s $(which zsh)
-
-# Install Oh-My-ZSH
-if [[ `uname` == 'Darwin' ]]; then
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-else
-	sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-fi
 
 # Copies over zsh config file
 cp configs/.zshrc $HOME/.zshrc
