@@ -2,13 +2,18 @@
 
 # This program changes the default shell to zsh and applies my configuration in
 # configs/.zshrc
+set -e
 
 # Changes shell to zsh
 # Taken from https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH#installing-zsh
 chsh -s $(which zsh)
 
 # Install Oh-My-ZSH
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+if [[ `uname` == 'Darwin' ]]; then
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+else
+	sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+fi
 
 # Copies over zsh config file
 cp configs/.zshrc $HOME/.zshrc
