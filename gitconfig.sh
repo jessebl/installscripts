@@ -1,6 +1,9 @@
 #!/bin/bash
-git config --global user.name kantsdog
-git config --global user.email j.bl@openmailbox.org
+username=kantsdog
+email=j.bl@openmailbox.org
+
+git config --global user.name $username
+git config --global user.email $email
 git config --global core.editor "vi"
 
 # By default, push only the current branch instead of all branches
