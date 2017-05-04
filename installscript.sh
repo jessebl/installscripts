@@ -4,6 +4,8 @@
 add-apt-repository -y ppa:neovim-ppa/unstable
 #Seafile repositories
 add-apt-repository -y ppa:seafile/seafile-client
+#Kodi stable repository
+sudo add-apt-repository ppa:team-xbmc/ppa
 
 # Update repositories
 apt update
@@ -11,7 +13,7 @@ apt update
 apt -y upgrade
 
 # Install a bunch of packages
-apt install -y vim synapse redshift-gtk chromium-browser pepperflashplugin-nonfree unity-tweak-tool indicator-multiload keepass2 compizconfig-settings-manager compiz-plugins-extra pithos clementine git cowsay xdotool ssh sshfs screenfetch mtpfs kodi libnotify-bin notifyosdconfig gimp neovim zsh seafile-gui
+apt install -y vim synapse redshift-gtk chromium-browser pepperflashplugin-nonfree indicator-multiload keepass2 pithos clementine git cowsay xdotool ssh sshfs screenfetch mtpfs kodi gimp neovim zsh seafile-gui ncdu tree
 
 # Clean up unnecessary dependencies
 apt -y autoremove

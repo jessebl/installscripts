@@ -78,12 +78,13 @@ set showcmd "Displays command letters as you enter them
 set mouse=a "Enable mouse support
 set t_Co=256 "Set 256 colors in terminal for colorscheme (off by default in math lab
 
+set splitright "vertical splits open to the right of the current split.
+set splitbelow "horizontal splits open below the current split.
+
 let g:python_host_prog = '/usr/bin/python'
 autocmd FileType python setlocal foldmethod=indent "Automatic folding for python (za to fold/unfold, or :help fold for more info)
 
 set colorcolumn=80 "Colors vertical line 80 (nice for keeping line-length in mind)
-autocmd FileType sh set textwidth=80
-"In bash scripts, wrap lines at column 80
 
 
 """""""" CUSTOM BINDINGS """"""""
