@@ -4,8 +4,10 @@
 aliasing = true
 
 if [aliasing = true] ; then
-	echo "alias vi='nvim'
-alias vim='nvim'" >> ~/.bash_aliases
+	if ! grep -q nvim ~/.bash_aliases; then
+		echo "alias vi='nvim' \n alias vim='nvim'" >> ~/.bash_aliases
+	fi
+fi
 
 # This section links nvim to vim's configuration
 
