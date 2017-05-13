@@ -43,12 +43,19 @@ let g:goyo_height= '100%'
 autocmd VimEnter * Goyo 
 "The best git wrapper
 Plugin 'tpope/vim-fugitive'
+"Colorscheme
 Plugin 'colepeters/spacemacs-theme.vim'
 if (has("termguicolors"))
   set termguicolors
 endif
 set background=dark
 colorscheme spacemacs-theme
+"Pandoc plugins
+Plugin 'vim-pandoc/vim-pandoc'
+""Use <C-x><C-o> to use completion for citations if (neo)vim has python support
+set omnifunc=pandoc#completion#Complete
+" Display special characters for markdown symbols
+Plugin 'vim-pandoc/vim-pandoc-syntax'
 
 """" Settings
 set shiftwidth=4
