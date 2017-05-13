@@ -63,7 +63,7 @@ setlocal spell spelllang=en_us
 
 """" Bindings
 "Compile to PDF--Requires xetex and pandoc
-noremap <Leader>m :!pandoc --latex-engine=xelatex -V indent % -o %:p:h/%:r.pdf <Enter>
+noremap <Leader>m :!pandoc --latex-engine=xelatex --filter pandoc-citeproc -V indent % -o %:p:h/%:r.pdf <Enter>
 "Display PDF in Okular
 noremap <Leader>r :!okular %:p:h/%:r.pdf <Enter>
 "Show the word count of the file
