@@ -23,26 +23,21 @@ code itself.
 This script installs a handful of favorite programs. For brevity's sake,
 look at the `apt install` line of the script to see and modify the
 programs to be installed. Some repositories are also added for software
-installation. You must run it as root: 
-
-```bash 
-
-sudo ./nautilus-to-nemo.sh
+installation.
 
 ```
+
+### filebot.sh
+
+Uses the program `filebot` to rename media files (movies, TV, anime) and
+rearrange them in a nicer, neater directory structure. The variables inside the
+script should be self-explanatory.
 
 ### nautilus-to-nemo.sh 
 
 This script replaces Nautilus (Ubuntu's default file manager) with Nemo,
 which is more configurable. Nemo will be installed and set as the default
 file manager.
-
-Because nautilus-to-nemo.sh uses APT to add a PPA, update repository lists, and
-install Nemo, **you must run it as root**: 
-
-```bash
-
-sudo ./nautilus-to-nemo.sh 
 
 ```
 
