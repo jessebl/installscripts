@@ -14,8 +14,6 @@ look at the `apt install` line of the script to see and modify the
 programs to be installed. Some repositories are also added for software
 installation.
 
-```
-
 ### filebot.sh
 
 Uses the program `filebot` to rename media files (movies, TV, anime) and
@@ -27,8 +25,6 @@ script should be self-explanatory.
 This script replaces Nautilus (Ubuntu's default file manager) with Nemo,
 which is more configurable. Nemo will be installed and set as the default
 file manager.
-
-```
 
 ### neovim-setup.sh
 
