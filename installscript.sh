@@ -1,7 +1,7 @@
 #! /bin/bash
 
 #Neovim repository
-add-apt-repository -y ppa:neovim-ppa/unstable
+add-apt-repository -y ppa:neovim-ppa/stable
 #Seafile repositories
 add-apt-repository -y ppa:seafile/seafile-client
 #Kodi stable repository
