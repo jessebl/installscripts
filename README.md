@@ -1,22 +1,11 @@
 # Installscripts 
 
-## My (now) inappropriately named git repository
-
 This is my repo for scripts, configuration files, etc. I currently use
 Ubuntu-based distros, at least for now, so most scripts will work for
 those. Some of the code (particularly for doing specific tasks, like the
 nautilus-to-nemo script) has been pulled from various places on the
 internet, and moving forward I will try to source them in the body of the
 code itself.
-
-## Scripts
-* [generalconfigs.sh](#general-configssh)
-* [installscript.sh](#installscripsh)
-* [nautilus-to-nemo.sh](#nautilus-to-nemosh)
-* [neovim-setup.sh](#neovim-setupsh)
-* [torrent.sh](#torrentsh)
-* [vimconfig.sh](#vimconfigsh)
-  * vim configuration file highlights
 
 ### installscript.sh
 
@@ -47,9 +36,9 @@ This script follows the instructions from neovim's `:help nvim-from-vim`.
 Refers neovim to vim's configuration file (~/.vimrc). Also aliases vi and
 vim to nvim in bash (running `vi` will now run neovim instead).
 
-### torrent.sh
+### themeInstall.sh
 
-*Deprecated*
+Installs the "ultra flat" theme from this repo.
 
 ### vimconfig.sh 
 
@@ -66,9 +55,9 @@ The script will:
 * Download and install patched Powerline fonts for use with vim-airline (see
   below)
 * Use Vundle to install all plugins called for in ~/.vimrc
-* Adds a line to your ~/.bashrc to use vim as the default $MANPAGER
+* Adds a line to your ~/.bashrc to use vim as the default \$MANPAGER
 
-#### .vimrc highlights
+### .vimrc highlights
 
 * Vundle, a vim plugin manager
 * [molokai colorscheme](https://github.com/tomasr/molokai)
@@ -76,7 +65,6 @@ The script will:
   within vim
 * [vim-airline](https://github.com/vim-airline/vim-airline)-an attractive and
 * Mouse support turned on
-* Run currently opened file (according to its shebang) with Shift+e
 
 ## Files
 
