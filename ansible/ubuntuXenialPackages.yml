@@ -1,0 +1,51 @@
+---
+- hosts: localhost
+  become_user: root
+  become: yes
+  tasks:
+    - name: upgraded software
+      apt:
+        update_cache: yes
+        upgrade: dist
+    - block:
+      - name: neovim ppa
+        apt_repository:
+          repo: 'ppa:neovim-ppa/stable'
+      - name: neovim package
+        apt:
+          name:
+            - neovim
+    - block:
+      - name: seafile ppa
+        apt_repository:
+          repo: 'ppa:seafile/seafile-client'
+      - name: seafile package
+        apt:
+          name: seafile-gui
+    - block:
+      - name: neofetch ppa
+        apt_repository:
+          repo: 'ppa:dawidd0811/neofetch-daily'
+      - name: neofetch package
+        apt: 
+          name:
+            - neofetch
+    - name: custom system packages
+      apt:
+        name:
+          - vim
+          - git
+          - zsh
+          - ncdu
+          - ranger
+    - name: user packages
+      apt:
+        name:
+          - keepass2
+          - redshift-gtk
+          - pithos
+          - clementine
+          - kodi
+          - chromium-browser
+          - pepperflashplugin-nonfree
+          - indicator-multiload
