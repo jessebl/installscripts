@@ -38,6 +38,8 @@
           - zsh
           - ncdu
           - ranger
+          - htop
+          - iotop
     - name: user packages
       apt:
         name:
