@@ -51,3 +51,4 @@
           - chromium-browser
           - pepperflashplugin-nonfree
           - indicator-multiload
+          - rofi
