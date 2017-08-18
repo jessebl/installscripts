@@ -63,6 +63,8 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'} "Uses <C-e> to autocomplete HTML
 
 Plugin 'airblade/vim-gitgutter'
 
+Plugin 'tpope/vim-sleuth'
+
 "Plugin 'Yggdroot/indentLine' "Visually illustrates indentation section, but
 "requires font patched with the character below.
 let g:indentLine_char = "︙"
