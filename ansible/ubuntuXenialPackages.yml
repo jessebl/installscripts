@@ -26,10 +26,17 @@
       - name: neofetch ppa
         apt_repository:
           repo: 'ppa:dawidd0811/neofetch-daily'
+        when: ansible_distribution == 'Ubuntu' and ansible_distribution_version <= '16.10'
       - name: neofetch package
         apt: 
           name:
             - neofetch
+    - name: geary ppa
+      apt_repository:
+        repo: 'ppa:geary-team/releases'
+    - name: geary installed
+      apt:
+        name: geary
     - name: custom system packages
       apt:
         name:
@@ -40,14 +47,25 @@
           - ranger
           - htop
           - iotop
+          - nmap
     - name: user packages
       apt:
         name:
           - keepass2
           - redshift-gtk
+          - chromium-browser
+          - qbittorrent
+          - libreoffice
+          - pandoc
+          - pandoc-citeproc
+          - texlive-xetex
+          - pepperflashplugin-nonfree
+          - rofi
+          - scrot
+    - name: media packages
+      apt:
+        name:
           - pithos
           - clementine
           - kodi
-          - chromium-browser
-          - pepperflashplugin-nonfree
-          - rofi
+          - beets
