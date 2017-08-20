@@ -1,0 +1,47 @@
+---
+- hosts: localhost
+  tasks:
+    - name: i3 ppa
+      # right-click in fullscreen might freeze Xorg with Ubuntu's old package
+      apt_repository:
+        repo: 'ppa:verterok/i3'
+    - name: i3 installed
+      apt:
+        name: i3
+      become: yes
+    - name: set i3 as wm
+      command: xfconf-query --channel xfce4-session --property /sessions/Failsafe/Client0_Command --type string --set "i3" --force-array
+    - name: xfce4-i3-workspaces-plugin ppa
+      apt_repository:
+        repo: 'ppa:aacebedo/xfce4-i3-workspaces-plugin'
+      become: yes
+    - name: xfce4-i3-workspaces-plugin helper ppa
+      apt_repository:
+        repo: 'ppa:aacebedo/libi3ipc-glib'
+      become: yes
+    - name: xfce4-i3-workspaces-plugin installed
+      apt:
+        name: xfce4-i3-workspaces-plugin
+      become: yes
+    - name: xfce global menu ppa
+      apt_repository:
+        repo: 'ppa:webupd8team/mate'
+      become: yes
+    - name: xfce global menu installed
+      apt:
+        name:
+          - xfce4-vala-appmenu-plugin 
+          - unity-gtk3-module 
+          - unity-gtk2-module 
+          - appmenu-qt 
+          - appmenu-qt5
+      become: yes
+    - name: set xfce global menu
+      command: xfconf-query -c xsettings -p /Gtk/ShellShowsMenubar -n -t bool -s true
+    - name: set xfce global menu
+      command: xfconf-query -c xsettings -p /Gtk/ShellShowsAppmenu -n -t bool -s true
+    - name: theme packages installed
+      apt:
+        name: breeze-cursor-theme
+    - name: set cursor theme
+      command: xfconf-query --channel xsettings --property /Gtk/CursorThemeName --type string --set "breeze_cursors"
