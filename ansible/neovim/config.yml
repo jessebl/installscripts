@@ -5,7 +5,7 @@
   tasks:
     - name: neovim autoload directory
       file:
-        path: "{{ lookup('env','HOME') }}/test"
+        path: "{{ lookup('env','HOME') }}/.local/share/nvim/site/autoload"
         state: directory
     - name: vim-plug plugin manager
       get_url:
