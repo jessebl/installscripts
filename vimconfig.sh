@@ -15,7 +15,7 @@ fi
 
 # Load in .vimrc (vim config file) from this repo
 echo "Copying over .vimrc (vim configuration file)"
-stow $(basename)/configs/vim -t $HOME
+stow $(basename $0)/configs/vim -t $HOME
 
 # Download patched fonts for airline (special status bar at the bottom)
 # Note: you will have to change the font of your terminal manually to actually make use of the fonts. The fonts as a whole are called "Powerline patched", so the font that I might load would be "Ubuntu Mono derivative Powerline Regular." I find that that font at size 13 is a suitable replacement in gnome-terminal, the default Ubuntu terminal. More documentation can be found in the README.md for the powerline fonts.
