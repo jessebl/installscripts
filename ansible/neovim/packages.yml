@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  tasks:
+    - name: neovim ppa
+      become: yes
+      apt_repository:
+        repo: 'ppa:neovim-ppa/stable'
+    - name: neovim and supporting packages
+      become: yes
+      apt:
+        name:
+          - neovim
+          - python-pip
+          - stow
+    - name: neovim pip package
+      become: yes
+      pip:
+        name:
+          neovim

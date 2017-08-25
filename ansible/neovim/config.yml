@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  vars:
+    - stowLocation: $HOME/installscripts/configs
+  tasks:
+    - name: set neovim config
+      command:
+        stow -d {{ stowLocation }} -t $HOME neovim
