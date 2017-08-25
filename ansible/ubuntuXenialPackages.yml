@@ -42,6 +42,7 @@
         name:
           - vim
           - git
+          - stow
           - zsh
           - ncdu
           - ranger
