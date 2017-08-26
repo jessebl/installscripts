@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  vars:
+    - stowLocation:  "{{ lookup('env','HOME') }}/installscripts/configs"
+  tasks:
+    - name: i3 config directory
+      file:
+        path: "{{ lookup('env','HOME') }}/.config/i3"
+        state: directory
+    - name: set i3 config
+      command:
+        stow -d {{ stowLocation }} -t {{ lookup('env','HOME') }} i3
