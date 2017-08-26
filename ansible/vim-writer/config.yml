@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  vars:
+    - stowLocation:  "{{ lookup('env','HOME') }}/installscripts/configs"
+  tasks:
+    - name: set vim-writer config
+      command:
+        stow -d {{ stowLocation }} -t {{ lookup('env','HOME') }} vim-writer
+    - name: alias "viw" for writer-vim
+      lineinfile:
+        dest: "{{ lookup('env','HOME') }}/.bash_aliases"
+        line: "alias viw='vi -u ~/.writer.vimrc'"
+    - name: install vimplugins
+      command:
+        vi +PlugInstall +qall
