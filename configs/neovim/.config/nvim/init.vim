@@ -12,3 +12,7 @@ call plug#end()
 set number	" Show line numbers
 set splitright	" Open vertical splits to the right
 set splitbelow	" Open horizontal splits below
+
+" Custom Bindings
+" Toggle search-term highlighting
+noremap <Leader>h :set hlsearch! <Enter>
