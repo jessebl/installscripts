@@ -1,14 +1,7 @@
 ---
+- include: packages.yml
 - hosts: localhost
   tasks:
-    - name: i3 ppa
-      # right-click in fullscreen might freeze Xorg with Ubuntu's old package
-      apt_repository:
-        repo: 'ppa:verterok/i3'
-    - name: i3 installed
-      apt:
-        name: i3
-      become: yes
     - name: set i3 as wm
       command: xfconf-query --channel xfce4-session --property /sessions/Failsafe/Client0_Command --type string --set "i3" --force-array
     - name: xfce4-i3-workspaces-plugin ppa
