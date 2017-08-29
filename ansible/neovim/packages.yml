@@ -5,9 +5,10 @@
       become: yes
       apt_repository:
         repo: 'ppa:neovim-ppa/stable'
+      when: ansible_os_family == "Ubuntu"
     - name: neovim and supporting packages
       become: yes
-      apt:
+      package:
         name:
           - neovim
           - python-pip
