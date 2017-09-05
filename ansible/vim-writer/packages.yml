@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  tasks:
+    - name: writing packages
+      become: yes
+      apt:
+        name:
+          - pandoc
+          - pandoc-citeproc
+          - texlive-xetex
