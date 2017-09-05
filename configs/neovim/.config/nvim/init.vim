@@ -9,7 +9,6 @@ Plug 'w0rp/ale', { 'do': 'g:ale_lint_on_text_changed=never' }
 call plug#end()
 
 " Set section
-set number	" Show line numbers
 set splitright	" Open vertical splits to the right
 set splitbelow	" Open horizontal splits below
 
