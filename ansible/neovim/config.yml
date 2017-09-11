@@ -16,4 +16,4 @@
         stow -d {{ stowLocation }} -t $HOME neovim
     - name: install neovim plugins
       command:
-        nvim +PlugInstall +UpdateRemotePlugins+qall
+        nvim +PlugInstall +UpdateRemotePlugins +qall
