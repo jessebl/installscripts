@@ -37,6 +37,21 @@ stow -d ~/installscripts/ -t ~ neovim
 
 ```
 
+## Ansible playbooks
+
+To run ansible playbooks, you will need it installed. Once you have installed
+it, (which are most of the `.yml` files in [ansible/](ansible)), run the
+command `ansible-playbook <path to ansible playbook>`. If anything in the
+playbook requires root access, add the `-K` flag to prompt for `sudo`
+authentication. Please note that most of playbooks have only been written for
+Ubuntu 16.04, but supporting multiple platforms (especially CentOS) is an
+ongoing goal of mine.
+
+## Shell scripts
+
+While I am trying to move to Ansible for most configuration, some things are
+done better as simple shell scripts.
+
 ### filebot.sh
 
 Uses the program `filebot` to rename media files (movies, TV, anime) and
