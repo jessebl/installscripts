@@ -37,6 +37,9 @@
     - name: geary installed
       apt:
         name: geary
+    - name: kodi ppa
+      apt_repository:
+        repo: 'ppa:team-xbmc/ppa'
     - name: custom system packages
       apt:
         name:
