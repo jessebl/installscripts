@@ -48,6 +48,6 @@ noremap <Leader>m :Pandoc pdf --latex-engine=xelatex --filter pandoc-citeproc <E
 "Display PDF
 noremap <Leader>r :!evince "%:p:h/%:r.pdf" <Enter>
 "Show the word count of the file
-noremap <Leader>w :!wc % <Enter>
+noremap <Leader>w :!wc "%" <Enter>
 "Toggle search-term highlighting
 noremap <Leader>h :set hlsearch! <Enter>
