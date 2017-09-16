@@ -18,6 +18,8 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'junegunn/limelight.vim'
 " Simple colorscheme that works with limelight
 Plug 'ajh17/Spacegray.vim'
+" Nice git interface from within vim
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
  ", { 'do': 'g:limelight_conceal_ctermfg=gray' }
