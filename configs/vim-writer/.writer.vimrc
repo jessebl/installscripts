@@ -45,6 +45,8 @@ setlocal spell spelllang=en_us
 """" Bindings
 "Compile to PDF--Requires xetex, pandoc, and Pandoc plugin
 noremap <Leader>m :Pandoc pdf --latex-engine=xelatex --filter pandoc-citeproc <Enter>
+"Compile to docx--Requires xetex, pandoc, and Pandoc plugin
+noremap <Leader>d :Pandoc docx --filter pandoc-citeproc<Enter>
 "Display PDF
 noremap <Leader>r :!evince "%:p:h/%:r.pdf" <Enter>
 "Show the word count of the file
