@@ -3,7 +3,8 @@
 # This script installs 1) the gtk theme ultra-flat-steftrikia from this repo, and 2) the icon theme Paper from its git repo
 
 # Copy the theme files to the user's themes directory
-cp ultra-flat-steftrikia $HOME/.themes/ultra-flat-steftrikia
+cd $(dirname $0)
+cp ../assets/ultra-flat-steftrikia/ $HOME/.themes
 
 # Applies the theme
 gsettings set org.gnome.desktop.interface gtk-theme ultra-flat-steftrikia

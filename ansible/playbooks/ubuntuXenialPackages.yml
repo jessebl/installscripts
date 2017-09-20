@@ -66,6 +66,9 @@
           - pepperflashplugin-nonfree
           - rofi
           - scrot
+          - dict
+          - dictd
+          - dict-gcide
     - name: media packages
       apt:
         name:
