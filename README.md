@@ -9,6 +9,23 @@ things:
 
 - Ansible playbooks
 
+## Ansible
+
+To run ansible playbooks, you will need it installed. Once you have installed
+it, (which are most of the `.yml` files in [ansible/](ansible)), run the
+command `ansible-playbook <path to ansible playbook>`. If anything in the
+playbook requires root access, add the `-K` flag to prompt for `sudo`
+authentication. Please note that most of playbooks have only been written for
+Ubuntu 16.04, but supporting multiple platforms (especially CentOS) is an
+ongoing goal of mine.
+
+### Setting up Ansible
+
+To quickly get started using my Ansible code, you can run
+[ansible/bootstrap.sh](ansible/bootstrap.sh) on Ubuntu-based systems to install
+and configure Ansible. Make sure to run the script as the user that you'll use
+to run Ansible commands!
+
 ## Configs
 
 Configuration files (found in [configs/](configs)) are structured for use with
@@ -36,23 +53,6 @@ This gives us the following command:
 stow -d ~/installscripts/ -t ~ neovim
 
 ```
-
-## Ansible playbooks
-
-To run ansible playbooks, you will need it installed. Once you have installed
-it, (which are most of the `.yml` files in [ansible/](ansible)), run the
-command `ansible-playbook <path to ansible playbook>`. If anything in the
-playbook requires root access, add the `-K` flag to prompt for `sudo`
-authentication. Please note that most of playbooks have only been written for
-Ubuntu 16.04, but supporting multiple platforms (especially CentOS) is an
-ongoing goal of mine.
-
-### Setting up Ansible
-
-To quickly get started using my Ansible code, you can run
-[ansible/bootstrap.sh](ansible/bootstrap.sh) on Ubuntu-based systems to install
-and configure Ansible. Make sure to run the script as the user that you'll use
-to run Ansible commands!
 
 ## Shell scripts
 
