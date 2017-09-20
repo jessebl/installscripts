@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   vars:
-    roles_path: "{{ lookup('env','HOME') }}/installscripts/ansible/roles"
+    roles_path: "{{ playbook_dir }}/roles"
   tasks:
     - name: configure ansible for local user
       ini_file:

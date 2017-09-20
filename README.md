@@ -47,6 +47,13 @@ authentication. Please note that most of playbooks have only been written for
 Ubuntu 16.04, but supporting multiple platforms (especially CentOS) is an
 ongoing goal of mine.
 
+### Setting up Ansible
+
+To quickly get started using my Ansible code, you can run
+[ansible/bootstrap.sh](ansible/bootstrap.sh) on Ubuntu-based systems to install
+and configure Ansible. Make sure to run the script as the user that you'll use
+to run Ansible commands!
+
 ## Shell scripts
 
 While I am trying to move to Ansible for most configuration, some things are
