@@ -1,0 +1,12 @@
+- name: neovim and supporting packages
+  become: yes
+  apt:
+    update_cache: yes
+    name:
+      - neovim
+      - python-pip
+      - stow
+- name: neovim pip package
+  become: yes
+  pip:
+    name: neovim

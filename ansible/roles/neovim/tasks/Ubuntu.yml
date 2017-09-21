@@ -1,0 +1,8 @@
+- name: tool to add PPAs
+  apt:
+    name: software-properties-common
+- name: neovim ppa
+  become: yes
+  apt_repository:
+    repo: 'ppa:neovim-ppa/stable'
+- include: debian.yml

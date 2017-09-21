@@ -1,0 +1,9 @@
+---
+- name: enable epel
+  become: yes
+  yum:
+    name: epel-release
+- name: neovim installed
+  become: yes
+  yum:
+    name: neovim

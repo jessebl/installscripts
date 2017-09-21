@@ -1,0 +1,12 @@
+---
+# Install packages per-distro
+- name: Packages for Ubuntu systems
+  when: ansible_distribution == 'Ubuntu'
+  include: Ubuntu.yml
+- name: Packages for CentOS systems
+  when: ansible_distribution == 'CentOS'
+  include: CentOS.yml
+
+# Configure Neovim
+- name: Neovim Configuration
+  include: config.yml
