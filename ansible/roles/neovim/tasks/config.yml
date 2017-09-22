@@ -12,6 +12,10 @@
 - name: install neovim plugins
   command:
     nvim +PlugInstall +UpdateRemotePlugins +qall
+- name: ~/.bash_aliases exists
+  file:
+    dest: "{{ lookup('env', 'HOME') }}/.bash_aliases"
+    state: file
 - name: alias vi to nvim
   lineinfile:
     dest: "{{ lookup('env', 'HOME') }}/.bash_aliases"
