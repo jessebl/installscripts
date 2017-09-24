@@ -1,2 +1,2 @@
 ---
-stow_location: ../../../configs/
+stow_location: "{{ role_path }}/../../../configs"

@@ -11,7 +11,7 @@ Ubuntu or CentOS with root privileges
 Role Variables
 --------------
 
-stow_location: $HOME/installscripts/configs     # 
+stow_location: installscripts/configs
 
 Dependencies
 ------------
