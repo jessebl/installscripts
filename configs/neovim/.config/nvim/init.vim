@@ -4,6 +4,10 @@ call plug#begin()
 Plug 'tpope/vim-commentary'
 " Autodetect indentation
 Plug 'tpope/vim-sleuth'
+" Git wrapper/interface
+Plug 'tpope/vim-fugitive'
+" Show git diffs in gutter
+Plug 'airblade/vim-gitgutter'
 " Code linting
 Plug 'w0rp/ale', { 'do': 'g:ale_lint_on_text_changed=never' }
 call plug#end()
