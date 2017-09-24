@@ -1,4 +1,5 @@
 - name: tool to add PPAs
+  become: yes
   apt:
     name: software-properties-common
 - name: neovim ppa
