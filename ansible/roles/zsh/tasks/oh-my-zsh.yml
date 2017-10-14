@@ -1,0 +1,27 @@
+- name: clone repo to ~/.oh-my-zsh
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh
+    dest: "{{ ohmyzsh_dir }}"
+- name: set config at ~/.zshrc
+  synchronize:
+    src: "{{ ohmyzsh_dir }}/templates/zshrc.zsh-template"
+    dest: "{{ zsh_config_file }}"
+- name: source ~/.bash_aliases
+  lineinfile:
+    path: "{{ zsh_config_file }}"
+    line: "source ~/.bash_aliases"
+- name: disable oh-my-zsh update prompt
+  lineinfile:
+    path: "{{ zsh_config_file }}"
+    line: "DISABLE_UPDATE_PROMPT=true"
+- name: disable oh-my-zsh auto-updates
+  lineinfile:
+    path: "{{ zsh_config_file }}"
+    line: "DISABLE_AUTO_UPDATE=true"
+- name: set theme to agnoster
+  lineinfile:
+    path: "{{ zsh_config_file }}"
+    regexp: 'ZSH_THEME=*'
+    line: 'ZSH_THEME="{{ ohmyzsh_theme }}"'
+- name: manually set shell to zsh
+  command: chsh -s /bin/zsh

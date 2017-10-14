@@ -1,0 +1,15 @@
+galaxy_info:
+  author: kantsdog
+  description: install and configure zsh with oh-my-zsh
+
+  license: GPLv3
+
+  platforms:
+    - name: CentOS
+    - name: Ubuntu
+    - name: Debian
+
+  galaxy_tags:
+    - shell
+
+dependencies: []

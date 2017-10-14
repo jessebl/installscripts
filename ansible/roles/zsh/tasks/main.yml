@@ -1,0 +1,5 @@
+---
+- name: packages
+  include: packages.yml
+- name: use oh-my-zsh
+  include: oh-my-zsh.yml
