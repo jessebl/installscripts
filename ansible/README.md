@@ -17,5 +17,4 @@ Installs and configures neovim on localhost
 
 *Requires root/sudo access*
 
-Installs and configures zsh with oh-my-zsh on localhost, assuming you have
-root/sudo access
+Installs and configures zsh with oh-my-zsh on localhost

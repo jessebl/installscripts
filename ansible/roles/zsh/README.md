@@ -12,7 +12,9 @@ Role Variables
 --------------
 
 ohmyzsh_theme: agnoster
+
 zsh_config_file: "{{ lookup('env','HOME') }}/.zshrc"
+
 ohmyzsh_dir: "{{ lookup('env','HOME') }}/.oh-my-zsh"
 
 Dependencies
