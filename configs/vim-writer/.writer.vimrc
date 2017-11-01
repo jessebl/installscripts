@@ -18,6 +18,8 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'junegunn/limelight.vim'
 " Simple colorscheme that works with limelight
 Plug 'ajh17/Spacegray.vim'
+" Solarized colorscheme
+Plug 'altercation/vim-colors-solarized'
 " Nice git interface from within vim
 Plug 'tpope/vim-fugitive'
 call plug#end()
@@ -25,8 +27,8 @@ call plug#end()
  ", { 'do': 'g:limelight_conceal_ctermfg=gray' }
 """" Plugin config section
 " Colorscheme
-" set background=dark
-colorscheme spacegray
+set background=dark
+colorscheme solarized
 " Use hard line wrapping with vim-pencil
 let g:pencil#wrapModeDefault = 'hard'
 autocmd FileType markdown,mkd,text	call pencil#init()
@@ -46,11 +48,13 @@ setlocal spell spelllang=en_us
 
 """" Bindings
 "Compile to PDF--Requires xetex, pandoc, and Pandoc plugin
-noremap <Leader>m :Pandoc pdf --latex-engine=xelatex --filter pandoc-citeproc <Enter>
+noremap <Leader>p :Pandoc pdf --latex-engine=xelatex --filter pandoc-citeproc <Enter>
 "Compile to docx--Requires xetex, pandoc, and Pandoc plugin
 noremap <Leader>d :Pandoc docx --filter pandoc-citeproc<Enter>
 "Display PDF
-noremap <Leader>r :!evince "%:p:h/%:r.pdf" <Enter>
+noremap <Leader>r :!xdg-open "%:p:h/%:r.pdf" <Enter>
+"Display docx
+noremap <Leader>e :!xdg-open "%:p:h/%:r.docx" <Enter>
 "Show the word count of the file
 noremap <Leader>w :!wc "%" <Enter>
 "Toggle search-term highlighting
