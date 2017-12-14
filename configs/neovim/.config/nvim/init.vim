@@ -9,7 +9,7 @@ Plug 'tpope/vim-fugitive'
 " Show git diffs in gutter
 Plug 'airblade/vim-gitgutter'
 " Code linting
-Plug 'w0rp/ale', { 'do': 'g:ale_lint_on_text_changed=never' }
+Plug 'w0rp/ale'
 call plug#end()
 
 " Set section
