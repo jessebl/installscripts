@@ -22,12 +22,15 @@ Plug 'ajh17/Spacegray.vim'
 Plug 'altercation/vim-colors-solarized'
 " Nice git interface from within vim
 Plug 'tpope/vim-fugitive'
+" Word count with :WordCount
+Plug 'ChesleyTan/wordCount.vim'
 call plug#end()
 
  ", { 'do': 'g:limelight_conceal_ctermfg=gray' }
 """" Plugin config section
 " Colorscheme
-set background=dark
+let g:solarized_termcolors=256
+set background=light
 colorscheme solarized
 " Use hard line wrapping with vim-pencil
 let g:pencil#wrapModeDefault = 'hard'
@@ -56,6 +59,6 @@ noremap <Leader>r :!xdg-open "%:p:h/%:r.pdf" <Enter>
 "Display docx
 noremap <Leader>e :!xdg-open "%:p:h/%:r.docx" <Enter>
 "Show the word count of the file
-noremap <Leader>w :!wc "%" <Enter>
+noremap <Leader>w :WordCount <Enter>
 "Toggle search-term highlighting
 noremap <Leader>h :set hlsearch! <Enter>
