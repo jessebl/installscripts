@@ -24,3 +24,4 @@ if has ('nvim')
   " Escape terminal mode with Escape
   tnoremap <Esc> <C-\><C-n>
 endif
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
