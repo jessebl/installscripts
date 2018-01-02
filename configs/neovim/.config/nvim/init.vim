@@ -16,6 +16,11 @@ call plug#end()
 set splitright	" Open vertical splits to the right
 set splitbelow	" Open horizontal splits below
 
+" Change buffers without saving
+set hidden
+" Switch to previous buffer
+nnoremap <Leader>` :b#<CR>
+
 " Custom Bindings
 " Toggle search-term highlighting
 noremap <Leader>h :set hlsearch! <Enter>
