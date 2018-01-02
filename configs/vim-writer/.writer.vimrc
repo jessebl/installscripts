@@ -5,7 +5,7 @@ Plug 'tpope/vim-commentary'
 " Autodetect indentation
 Plug 'tpope/vim-sleuth'
 " Code linting
-Plug 'w0rp/ale', { 'do': 'g:ale_lint_on_text_changed=never' }
+Plug 'w0rp/ale'
 " Makes prose editing easier
 Plug 'reedes/vim-pencil'
 " Distraction-free writing
