@@ -48,6 +48,10 @@ set omnifunc=pandoc#completion#Complete
 """" Settings
 " "Use dictionary
 setlocal spell spelllang=en_us
+" Ignore case for insert completion, not for search
+set ignorecase
+set infercase
+set smartcase
 
 """" Bindings
 "Compile to PDF--Requires xetex, pandoc, and Pandoc plugin
