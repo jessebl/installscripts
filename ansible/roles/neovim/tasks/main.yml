@@ -1,11 +1,15 @@
 ---
-# Install packages per-distro
+# Install packages
 - name: Packages for Ubuntu systems
   when: ansible_distribution == 'Ubuntu'
   include: Ubuntu.yml
 - name: Packages for CentOS systems
   when: ansible_distribution == 'CentOS'
   include: CentOS.yml
+- name: neovim pip package for python provider
+  become: yes
+  pip:
+    name: neovim
 
 # Configure Neovim
 - name: Neovim Configuration

@@ -6,7 +6,3 @@
       - neovim
       - python-pip
       - stow
-- name: neovim pip package
-  become: yes
-  pip:
-    name: neovim

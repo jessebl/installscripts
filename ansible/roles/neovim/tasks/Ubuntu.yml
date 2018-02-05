@@ -2,8 +2,10 @@
   become: yes
   apt:
     name: software-properties-common
+  when: "{{ ansible_distribution_version }}" <= "17.04"
 - name: neovim ppa
   become: yes
   apt_repository:
     repo: 'ppa:neovim-ppa/stable'
+  when: "{{ ansible_distribution_version }}" <= "17.04"
 - include: debian.yml

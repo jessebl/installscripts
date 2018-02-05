@@ -6,4 +6,7 @@
 - name: neovim installed
   become: yes
   yum:
-    name: neovim
+    name:
+      - neovim
+      - python-pip
+      - stow
