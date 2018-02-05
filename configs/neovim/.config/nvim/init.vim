@@ -10,7 +10,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 " Code linting
 Plug 'w0rp/ale'
+" Fuzzy finding with FZF
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
+
+" FZF bindings
+nnoremap <Leader>f :Files <Enter>
 
 " Set section
 set splitright	" Open vertical splits to the right
