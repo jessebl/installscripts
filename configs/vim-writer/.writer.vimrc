@@ -66,3 +66,7 @@ noremap <Leader>e :!xdg-open "%:p:h/%:r.docx" <Enter>
 noremap <Leader>w :WordCount <Enter>
 "Toggle search-term highlighting
 noremap <Leader>h :set hlsearch! <Enter>
+" Change buffers without saving
+set hidden
+" Switch to previous buffer
+nnoremap <Leader>` :b#<CR>
