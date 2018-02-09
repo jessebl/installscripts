@@ -15,9 +15,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
-" FZF bindings
-nnoremap <Leader>f :Files <Enter>
-
 " Set section
 set splitright	" Open vertical splits to the right
 set splitbelow	" Open horizontal splits below
@@ -36,3 +33,18 @@ if has ('nvim')
   tnoremap <Esc> <C-\><C-n>
 endif
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
+
+" FZF bindings
+nnoremap <Leader>f :Files <Enter>
+
+" ripgrep settings + bindings
+if executable('rg')
+  " User ripgrep as vims grep program
+  set grepprg=rg\ --vimgrep
+  " :Find command for opening files with queried contents
+  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number
+        \ --no-heading --fixed-strings --ignore-case --no-ignore --hidden
+        \ --follow --glob "!.git/*" --color "always"
+        \ '.shellescape(<q-args>), 1, <bang>0)
+  nnoremap <Leader>g :Find <Enter>
+endif
