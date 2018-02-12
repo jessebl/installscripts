@@ -1,3 +1,19 @@
+" Install vim-plug
+if has('nvim')
+  if empty(glob('~/.config/nvim/autoload/plug.vim'))
+    silent !mkdir -p ~/.config/nvim/autoload
+    silent !wget -O ~/.config/nvim/autoload/plug.vim
+          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall
+  endif
+else
+  if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !mkdir -p ~/.vim/autoload
+    silent !wget -O ~/.vim/autoload/plug.vim
+          \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall
+  endif
+endif
 " Plugin section--declare all plugins before "call plug#end()
 call plug#begin()
 " Adds comment action: gc
