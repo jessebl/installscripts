@@ -70,3 +70,12 @@ noremap <Leader>h :set hlsearch! <Enter>
 set hidden
 " Switch to previous buffer
 nnoremap <Leader>` :b#<CR>
+
+" vsuite makefile
+if filereadable(".vsuite/makefile")
+  set makeprg=make\ -f\ .vsuite/makefile
+  "Compile to PDF--Requires xetex, pandoc, and Pandoc plugin
+  noremap <Leader>p :make "%:p:h/%:r.pdf" <Enter>
+  "Compile to docx--Requires xetex, pandoc, and Pandoc plugin
+  noremap <Leader>d :make "%:p:h/%:r.docx" <Enter>
+endif
