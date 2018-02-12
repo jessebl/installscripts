@@ -14,10 +14,6 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo!' }
 Plug 'vim-pandoc/vim-pandoc'
 " Special characters for markdown symbols
 Plug 'vim-pandoc/vim-pandoc-syntax'
-" Highlight current paragraph
-Plug 'junegunn/limelight.vim'
-" Simple colorscheme that works with limelight
-Plug 'ajh17/Spacegray.vim'
 " Solarized colorscheme
 Plug 'altercation/vim-colors-solarized'
 " Nice git interface from within vim
@@ -26,7 +22,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'ChesleyTan/wordCount.vim'
 call plug#end()
 
- ", { 'do': 'g:limelight_conceal_ctermfg=gray' }
 """" Plugin config section
 " Colorscheme
 let g:solarized_termcolors=256
@@ -38,7 +33,6 @@ autocmd FileType markdown,mkd,text	call pencil#init()
 " Use full height of window, trigger Goyo
 let g:goyo_height= '100%'
 autocmd VimEnter * Goyo 
-autocmd! User GoyoEnter Limelight
 
 " Pandoc plugins
 " Use <C-x><C-o> to use completion for citations if (neo)vim has python support
