@@ -13,6 +13,15 @@ Plug 'w0rp/ale'
 " Fuzzy finding with FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" Code completion with deoplete for certain filetypes
+let fts = ['python', 'py']
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'zchee/deoplete-jedi'
+  let b:deoplete_disable_auto_complete = 1
+  autocmd FileType python,haskell  let b:deoplete_disable_auto_complete = 0
+  let g:deoplete#auto_complete_delay = 1000
+endif
 call plug#end()
 
 " Set section
