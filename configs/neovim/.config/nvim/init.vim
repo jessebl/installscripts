@@ -9,7 +9,7 @@ Plug 'tpope/vim-fugitive'
 " Show git diffs in gutter
 Plug 'airblade/vim-gitgutter'
 " Code linting
-Plug 'w0rp/ale'
+Plug 'w0rp/ale', { 'on': 'ALEToggle' }
 " Fuzzy finding with FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -18,9 +18,12 @@ let fts = ['python', 'py']
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'zchee/deoplete-jedi'
+  let g:deoplete#enable_at_startup = 1
   let b:deoplete_disable_auto_complete = 1
   autocmd FileType python,haskell  let b:deoplete_disable_auto_complete = 0
-  let g:deoplete#auto_complete_delay = 1000
+  " let g:deoplete#complete_method = 'omnifunc'
+  " let g:deoplete#auto_complete_delay = 1000
+  set completeopt-=preview
 endif
 call plug#end()
 
