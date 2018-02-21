@@ -36,6 +36,9 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
 " Word count with :WordCount
 Plug 'ChesleyTan/wordCount.vim'
+" Fuzzy finding with FZF
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 """" Plugin config section
@@ -88,4 +91,19 @@ if filereadable(".vsuite/makefile")
   noremap <Leader>p :make "%:r.pdf" <Enter>
   "Compile to docx--Requires xetex, pandoc, and Pandoc plugin
   noremap <Leader>d :make "%:r.docx" <Enter>
+endif
+
+" FZF bindings
+nnoremap <Leader>f :Files <Enter>
+
+" ripgrep settings + bindings
+if executable('rg')
+  " User ripgrep as vims grep program
+  set grepprg=rg\ --vimgrep
+  " :Find command for opening files with queried contents
+  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number
+        \ --no-heading --fixed-strings --ignore-case --no-ignore --hidden
+        \ --follow --glob "!.git/*" --color "always"
+        \ '.shellescape(<q-args>), 1, <bang>0)
+  nnoremap <Leader>g :Find <Enter>
 endif
