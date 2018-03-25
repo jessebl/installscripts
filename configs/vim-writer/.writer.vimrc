@@ -83,6 +83,7 @@ noremap <Leader>h :set hlsearch! <Enter>
 set hidden
 " Switch to previous buffer
 nnoremap <Leader>` :b#<CR>
+nnoremap <Leader>a gwip
 
 " vsuite makefile
 if filereadable(".vsuite/makefile")
