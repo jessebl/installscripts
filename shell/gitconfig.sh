@@ -1,6 +1,6 @@
 #!/bin/bash
-username=kantsdog
-email=j.bl@openmailbox.org
+username=jessebl
+email=bulsonjg@whitman.edu
 
 git config --global user.name $username
 git config --global user.email $email
