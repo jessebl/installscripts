@@ -39,8 +39,11 @@ nnoremap <Leader>` :b#<CR>
 " Custom Bindings
 " Toggle search-term highlighting
 noremap <Leader>h :set hlsearch! <Enter>
-" Neovim-specific bindings
-if has ('nvim')
+" Make :make convenient
+nnoremap <Leader>m :make <Enter>
+
+" Neovim-specific
+if has('nvim')
   " Escape terminal mode with Escape
   tnoremap <Esc> <C-\><C-n>
 endif
@@ -60,3 +63,6 @@ if executable('rg')
         \ '.shellescape(<q-args>), 1, <bang>0)
   nnoremap <Leader>g :Find <Enter>
 endif
+
+" Use make to upload Arduino code
+autocmd BufNewFile,BufRead *.ino set makeprg=make\ upload
