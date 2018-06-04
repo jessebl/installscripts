@@ -27,7 +27,7 @@ Plug 'reedes/vim-pencil'
 " Distraction-free writing
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo!' }
 " Pandoc/markdown plugin
-Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-pandoc'
 " Special characters for markdown symbols
 Plug 'vim-pandoc/vim-pandoc-syntax'
 " Solarized colorscheme
@@ -65,6 +65,8 @@ setlocal spell spelllang=en_us
 set ignorecase
 set infercase
 set smartcase
+" Hard-wrap lines at 80 characters
+set textwidth=80
 
 """" Bindings
 "Compile to PDF--Requires xetex, pandoc, and Pandoc plugin
