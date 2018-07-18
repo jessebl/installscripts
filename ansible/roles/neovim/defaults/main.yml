@@ -1,2 +1,2 @@
 ---
-stow_location: "{{ role_path }}/../../../configs"
+neovim_config: "{{ role_path }}/../../../configs/neovim/.config/nvim/init.vim"

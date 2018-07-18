@@ -11,8 +11,10 @@
     path: "{{ lookup('env','HOME') }}/.config/nvim"
     state: directory
 - name: set neovim config
-  command:
-    stow -d {{ stow_location }} -t $HOME neovim
+  file:
+    src: "{{ neovim_config | realpath }}"
+    dest: "{{ lookup('env', 'HOME') }}/.config/nvim/init.vim"
+    state: link
 - name: install neovim plugins
   command:
     nvim +PlugInstall +UpdateRemotePlugins +qall
