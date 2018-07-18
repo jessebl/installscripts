@@ -1,1 +1,0 @@
-Note: I downloaded this from the Dropbox link STEFTRIKIA provided in her/his post on [gnome-look.org](https://www.gnome-look.org/content/show.php/Ultra-Flat?content=167473&PHPSESSID=a6421dee232a27b345888fed243e2848). It is supposedly licensed under the GPL, and I am just looking to keep it here for convenience's sake, worrying that the Dropbox link might go down at any time.
