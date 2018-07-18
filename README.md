@@ -19,13 +19,6 @@ authentication. Please note that most of playbooks have only been written for
 Ubuntu 16.04, but supporting multiple platforms (especially CentOS) is an
 ongoing goal of mine.
 
-### Setting up Ansible
-
-To quickly get started using my Ansible code, you can run
-[ansible/bootstrap.sh](ansible/bootstrap.sh) on Ubuntu-based systems to install
-and configure Ansible. Make sure to run the script as the user that you'll use
-to run Ansible commands!
-
 ## Configs
 
 Configuration files (found in [configs/](configs)) are structured for use with
@@ -64,14 +57,3 @@ done better as simple shell scripts.
 Uses the program `filebot` to rename media files (movies, TV, anime) and
 rearrange them in a nicer, neater directory structure. The variables inside the
 script should be self-explanatory.
-
-### nautilus-to-nemo.sh 
-
-This script replaces Nautilus (Ubuntu's default file manager) with Nemo,
-which is more configurable. Nemo will be installed and set as the default
-file manager.
-
-### themeInstall.sh
-
-Installs the "ultra flat" theme from this repo.
-
