@@ -5,9 +5,11 @@
     state: present
   become: yes
 - name: set config at ~/.zshrc
-  synchronize:
-    src: "{{ stow_location }}/zsh/.zshrc"
+  file:
+    state: link
+    src: "{{ stow_location | realpath}}/zsh/.zshrc"
     dest: "{{ zsh_config_file }}"
+    force: yes
 - name: manually set shell to zsh
   command: chsh {{ ansible_user }} -s /usr/bin/zsh
   become: yes
