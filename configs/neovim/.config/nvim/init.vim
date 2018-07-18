@@ -17,6 +17,10 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 let g:deoplete#enable_at_startup = 1
 set completeopt-=preview
+" Go support (e.g. gofmt on write)
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Autcomplete and autoformat brackets, etc.
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " Set section
