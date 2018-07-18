@@ -6,7 +6,7 @@
   become: yes
 - name: set config at ~/.zshrc
   synchronize:
-    src: zshrc
+    src: "{{ stow_location }}/zsh/.zshrc"
     dest: "{{ zsh_config_file }}"
 - name: manually set shell to zsh
   command: chsh {{ ansible_user }} -s /usr/bin/zsh
