@@ -1,10 +1,10 @@
 #!/bin/bash
 username=jessebl
-email=bulsonjg@whitman.edu
+email=j.bl@posteo.net
 
 git config --global user.name $username
 git config --global user.email $email
-git config --global core.editor "vi"
+git config --global core.editor "nvim"
 
 # By default, push only the current branch instead of all branches
 ## All branches would be "matching" instead of "simple"
