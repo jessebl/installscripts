@@ -2,7 +2,7 @@
 - name: find files
   find:
     # path: "{{ stow_location }}"
-    path: "{{ stow_location | realpath }}/zsh"
+    path: "{{ stow_location | realpath }}/{{ package }}"
     recurse: yes
     file_type: any
     hidden: yes
@@ -11,4 +11,5 @@
   file:
     src: "{{ item.path }}"
     dest: "{{ target_dir }}/{{ item.path | relpath(package_path) }}"
+    state: link
   with_items: "{{ files.files }}"
