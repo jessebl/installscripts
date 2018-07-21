@@ -37,6 +37,8 @@ nnoremap <Leader>` :b#<CR>
 noremap <Leader>h :set hlsearch! <Enter>
 " Make :make convenient
 nnoremap <Leader>m :make <Enter>
+" FZF for browsing buffer
+nnoremap <Leader>b :Buffers <Enter>
 
 " Neovim-specific
 if has('nvim')
