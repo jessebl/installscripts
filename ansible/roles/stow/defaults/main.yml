@@ -1,0 +1,4 @@
+---
+stow_location: "{{ role_path }}/../../../configs"
+package_path: "{{ stow_location | realpath }}/{{ package }}"
+target_dir: "{{ lookup('env', 'HOME') }}"

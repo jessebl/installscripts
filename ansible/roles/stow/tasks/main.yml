@@ -1,0 +1,14 @@
+---
+- name: find files
+  find:
+    # path: "{{ stow_location }}"
+    path: "{{ stow_location | realpath }}/zsh"
+    recurse: yes
+    file_type: any
+    hidden: yes
+  register: files
+- name: link
+  file:
+    src: "{{ item.path }}"
+    dest: "{{ target_dir }}/{{ item.path | relpath(package_path) }}"
+  with_items: "{{ files.files }}"
