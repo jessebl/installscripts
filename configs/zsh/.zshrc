@@ -56,10 +56,14 @@ autoload -U select-word-style
 select-word-style bash
 
 # Up-arrow completion
-bindkey '^[[A' history-search-backward
-bindkey '^[[B' history-search-forward
+# https://coderwall.com/p/jpj_6q/zsh-better-history-searching-with-arrow-keys
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
 
-# Parts taken from oh-my-zsh git stuff (including agnoster theme)
 prompt_git() {
   # Empty if git not in PATH
   (( $+commands[git] )) || return
