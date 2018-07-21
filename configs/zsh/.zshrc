@@ -1,6 +1,4 @@
-alias vi='nvim'
-alias viw='nvim -u ~/.writer.vimrc'
-alias vin='mkdir -p notes && viw notes/$(date +%F).md -c ":set background=dark"'
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

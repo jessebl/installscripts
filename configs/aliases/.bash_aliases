@@ -1,0 +1,8 @@
+alias vi='nvim'
+alias viw='nvim -u ~/.writer.vimrc'
+alias vin='mkdir -p notes && viw notes/$(date +%F).md -c ":set background=dark"'
+alias gl='git log'
+alias gd='git diff'
+alias ga='git add'
+alias gst='git status'
+alias gc='git commit'

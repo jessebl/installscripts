@@ -9,6 +9,11 @@
     name: stow
   vars:
     package: zsh
+- name: add .bash_aliases
+  include_role:
+    name: stow
+  vars:
+    package: aliases
 - name: manually set shell to zsh
   command: chsh {{ ansible_user }} -s /usr/bin/zsh
   become: yes
