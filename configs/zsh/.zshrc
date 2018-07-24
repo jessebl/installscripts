@@ -15,7 +15,11 @@ export GOPATH=$HOME/code/go
 
 # Set up prompt
 autoload -U colors && colors
-PROMPT="%{$fg[red]%}[%{$fg[default]%} %. %{$fg[red]%}]$%{$fg[default]%} "
+prompt_color='red'
+if [[ -v SSH_CLIENT || -v SSH_CONNECTION || -v SSH_TTY ]]; then
+  hoststring="${(%):-%m}: " && prompt_color='blue'
+fi
+PROMPT="%{$fg[$prompt_color]%}[%{$fg[default]%} "$hoststring"%. %{$fg[$prompt_color]%}]$%{$fg[default]%} "
 
 setopt histignorealldups sharehistory
 
