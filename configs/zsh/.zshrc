@@ -86,3 +86,9 @@ prompt_git() {
 
 setopt prompt_subst
 RPROMPT='$(prompt_git)'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/jesse/.local/lib/gcloud/path.zsh.inc' ]; then . '/home/jesse/.local/lib/gcloud/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/jesse/.local/lib/gcloud/completion.zsh.inc' ]; then . '/home/jesse/.local/lib/gcloud/completion.zsh.inc'; fi
