@@ -2,6 +2,13 @@
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+if command -v nvim > /dev/null; then
+  # Use no config for speed
+  export VISUAL="nvim -u NONE"
+else
+  export VISUAL=vi
+fi
+
 # Edit commandline with EDITOR/VISUAL
 autoload -z edit-command-line
 zle -N edit-command-line
