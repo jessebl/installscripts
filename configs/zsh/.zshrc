@@ -2,7 +2,13 @@
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Edit commandline with EDITOR/VISUAL
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 # fd - cd to selected directory
+# requires fzf in PATH
 fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
