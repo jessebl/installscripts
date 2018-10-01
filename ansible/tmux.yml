@@ -1,5 +1,11 @@
 ---
 - hosts: localhost
+  tasks:
+    - name: tmux package installed
+      package:
+        name:
+          - tmux
+      become: yes
   roles:
     - role: stow
       vars:
