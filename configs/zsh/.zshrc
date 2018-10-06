@@ -14,6 +14,29 @@ autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
+# Print contents of text files, descriptions of other ones
+function basicpreview {
+  filetext=$(file -b "$1")
+  if echo $filetext | grep -q "text"; then
+    head -n $LINES "$1"
+  else
+    echo $filetext
+  fi
+}
+
+# Print syntax-highlighted files if `highlight` available,
+# otherwise call `basicpreview` function
+function preview {
+  highlight --line-range 1-$LINES --wrap-simple --out-format xterm256 "$1" 2> /dev/null ||
+    basicpreview $1
+}
+
+# preview files when using FZF
+export FZF_DEFAULT_OPTS="--preview='source $HOME/.zshrc; preview {}'"
+
+# use ripgrep for fzf if available
+export FZF_DEFAULT_COMMAND="rg --color auto --files"
+
 # fd - cd to selected directory
 # requires fzf in PATH
 fd() {
