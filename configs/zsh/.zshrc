@@ -35,16 +35,26 @@ function preview {
 export FZF_DEFAULT_OPTS="--preview='source $HOME/.zshrc; preview {}'"
 
 # use ripgrep for fzf if available
-export FZF_DEFAULT_COMMAND="rg --color auto --files"
+# if not, use fd for fzf if available
+if command -v rg > /dev/null; then
+  export FZF_DEFAULT_COMMAND="rg --color auto --files"
+  # re-export T^ behavior
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+elif command -v fd > /dev/null; then
+  export FZF_DEFAULT_COMMAND="fd --type f"
+  # re-export T^ behavior
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+fi
 
-# fd - cd to selected directory
-# requires fzf in PATH
-fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
+
+# ALT-C to fuzzy enter directory
+# requires fzf
+export FZF_ALT_C_OPTS="--preview='ls -l {}'"
+if command -v fd > /dev/null; then
+  export FZF_ALT_C_COMMAND="fd --type d"
+else
+  export FZF_ALT_C_COMMAND="find -type d"
+fi
 
 export GOPATH=$HOME/code/go
 [ -d $GOPATH/bin ] && path+=$GOPATH/bin
