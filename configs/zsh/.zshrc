@@ -1,6 +1,3 @@
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if command -v nvim > /dev/null; then
   # Use no config for speed
@@ -138,3 +135,7 @@ if [ -f '/home/jesse/.local/lib/gcloud/path.zsh.inc' ]; then . '/home/jesse/.loc
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/jesse/.local/lib/gcloud/completion.zsh.inc' ]; then . '/home/jesse/.local/lib/gcloud/completion.zsh.inc'; fi
+
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
