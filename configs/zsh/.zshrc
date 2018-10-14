@@ -1,3 +1,8 @@
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+(cat ~/.cache/wal/sequences &)
+[ -f ~/.cache/wal/colors-tty.sh ] && source ~/.cache/wal/colors-tty.sh
 
 if command -v nvim > /dev/null; then
   # Use no config for speed
@@ -29,7 +34,7 @@ function preview {
 }
 
 # preview files when using FZF
-export FZF_DEFAULT_OPTS="--preview='source $HOME/.zshrc; preview {}'"
+export FZF_DEFAULT_OPTS="--preview='source $HOME/.zshrc > /dev/null; preview {}'"
 
 # use ripgrep for fzf if available
 # if not, use fd for fzf if available
