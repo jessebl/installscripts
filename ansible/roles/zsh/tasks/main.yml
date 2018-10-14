@@ -17,3 +17,10 @@
 - name: manually set shell to zsh
   command: chsh {{ ansible_user }} -s /usr/bin/zsh
   become: yes
+- name: install extra shell utils on Fedora
+  dnf:
+    name:
+      - fd-find
+      - ripgrep
+  become: yes
+  when: ansible_pkg_mgr == "dnf"
