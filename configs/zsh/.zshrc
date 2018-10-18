@@ -3,6 +3,8 @@
 # ( ) # Hide shell job control messages.
 (cat ~/.cache/wal/sequences &)
 [ -f ~/.cache/wal/colors-tty.sh ] && source ~/.cache/wal/colors-tty.sh
+# Theme name for wal
+export WAL_THEME='base16-gruvbox-medium'
 
 if command -v nvim > /dev/null; then
   # Use no config for speed
