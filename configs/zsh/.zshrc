@@ -1,7 +1,7 @@
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
 # ( ) # Hide shell job control messages.
-(cat ~/.cache/wal/sequences &)
+[ -f ~/.cache/wal/sequences ] && (cat ~/.cache/wal/sequences &)
 [ -f ~/.cache/wal/colors-tty.sh ] && source ~/.cache/wal/colors-tty.sh
 # Theme name for wal
 export WAL_THEME='base16-gruvbox-medium'
@@ -146,3 +146,5 @@ if [ -f '/home/jesse/.local/lib/gcloud/completion.zsh.inc' ]; then . '/home/jess
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export CGO_ENABLED=1
