@@ -1,0 +1,14 @@
+---
+- hosts: all
+  tasks:
+    - name: install common CLI packages
+      package:
+        name:
+          - tmux
+          - neovim
+          - trash-cli
+          - zsh
+          - git
+          - freeipa-client
+          - highlight
+      become: yes
