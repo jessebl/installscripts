@@ -1,6 +1,6 @@
 #!/bin/bash
 username=jessebl
-email=j.bl@posteo.net
+email=j.bl@posteo.org
 
 git config --global user.name $username
 git config --global user.email $email
