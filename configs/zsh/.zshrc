@@ -148,3 +148,9 @@ if [ -f '/home/jesse/.local/lib/gcloud/completion.zsh.inc' ]; then . '/home/jess
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export CGO_ENABLED=1
+
+function jcurl {
+  local resp=$(curl -is $1)
+  echo $resp | head -n1
+  echo $resp | tail -n1 | jq
+}
