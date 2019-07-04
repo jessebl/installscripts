@@ -9,18 +9,27 @@ Plug 'tpope/vim-fugitive'
 " Show git diffs in gutter
 Plug 'airblade/vim-gitgutter'
 " Code linting
-Plug 'w0rp/ale', { 'on': 'ALEToggle' }
+" Plug 'w0rp/ale'
 " Fuzzy finding with FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-let g:deoplete#enable_at_startup = 1
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'zchee/deoplete-jedi'
+" let g:deoplete#enable_at_startup = 1
 set completeopt-=preview
 " Go support (e.g. gofmt on write)
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Autcomplete and autoformat brackets, etc.
 Plug 'jiangmiao/auto-pairs'
+let g:AutoParisFlyMode = 1
+" Gruvbox theme
+Plug 'morhetz/gruvbox'
+" Completion things
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+" Javascript syntax and indentation
+Plug 'pangloss/vim-javascript'
+" Javascript JSX syntax and indentation
+Plug 'mxw/vim-jsx'
 call plug#end()
 
 " Set section
@@ -64,3 +73,15 @@ endif
 
 " Use make to upload Arduino code
 autocmd BufNewFile,BufRead *.ino set makeprg=make\ upload
+
+" Do not highlight search results by default
+set nohlsearch
+
+augroup golang
+	autocmd!
+	autocmd FileType go nnoremap <Leader>r :GoRun % <Enter>
+augroup END
+
+" let base16colorspace=256  " Access colors present in 256 colorspace
+set background=dark
+colorscheme gruvbox
