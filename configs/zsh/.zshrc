@@ -151,6 +151,25 @@ export CGO_ENABLED=1
 
 function jcurl {
   local resp=$(curl -is $1)
+  echo -n "\033[0;36m"
   echo $resp | head -n1
+  echo -n "\033[0m"
   echo $resp | tail -n1 | jq
+}
+
+function pcurl {
+  local resp=$(curl -si $1)
+  echo -n "\033[0;36m"
+  echo $resp | head -n1
+  echo -n "\033[0"
+  echo $resp | tail -n +6 | awk 'function red(string) { printf ("%s%s%s", "\033[0;31m", string, "\033[0m "); }
+  function green(string) { printf ("%s%s%s", "\033[0;32m", string, "\033[0m "); }
+  function blue(string) { printf ("%s%s%s", "\033[0;34m", string, "\033[0m "); }
+  function grey(string) { printf ("%s%s%s", "\033[0;37m", string, "\033[0m "); }
+  {
+    if ($1 != "#")
+      print red($1), green($2)
+    else
+      print grey($0)
+    }'
 }
