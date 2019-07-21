@@ -20,8 +20,8 @@ set completeopt-=preview
 " Go support (e.g. gofmt on write)
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Autcomplete and autoformat brackets, etc.
-Plug 'jiangmiao/auto-pairs'
-let g:AutoParisFlyMode = 1
+Plug 'tmsvg/pear-tree'
+let g:pear_tree_repeatable_expand = 0
 " Gruvbox theme
 Plug 'morhetz/gruvbox'
 " Completion things
@@ -30,6 +30,9 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'pangloss/vim-javascript'
 " Javascript JSX syntax and indentation
 Plug 'mxw/vim-jsx'
+" Autoformatting
+Plug 'Chiel92/vim-autoformat'
+au BufWrite * :Autoformat
 call plug#end()
 
 " Set section
