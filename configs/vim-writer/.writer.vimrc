@@ -51,7 +51,7 @@ let g:pencil#wrapModeDefault = 'hard'
 autocmd FileType markdown,mkd,text	call pencil#init()
 " Use full height of window, trigger Goyo
 let g:goyo_height= '100%'
-autocmd VimEnter * Goyo 
+" autocmd VimEnter * Goyo 
 
 " Pandoc plugins
 " Use <C-x><C-o> to use completion for citations if (neo)vim has python support
