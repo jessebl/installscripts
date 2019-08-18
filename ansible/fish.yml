@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  tasks:
+    - name: fish package installed
+      package:
+        name:
+          - fish
+      become: yes
+  roles:
+    - role: stow
+      vars:
+        package: fish
