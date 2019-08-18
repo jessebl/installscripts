@@ -4,7 +4,7 @@
     # path: "{{ stow_location }}"
     path: "{{ stow_location | realpath }}/{{ package }}"
     recurse: yes
-    file_type: any
+    file_type: file
     hidden: yes
   register: files
 - name: link
