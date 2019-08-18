@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: localhost
   tasks:
     - name: install common CLI packages
       package:
@@ -11,4 +11,14 @@
           - git
           - freeipa-client
           - highlight
+          - fd-find
+          - ripgrep
+          - units
+      become: yes
+
+    - name: install common GUI packages
+      package:
+        name:
+          - keepassxc
+          - seafile-client
       become: yes
