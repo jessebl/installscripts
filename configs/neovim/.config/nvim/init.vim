@@ -32,6 +32,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 " Autoformatting
 Plug 'Chiel92/vim-autoformat'
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
 au BufWrite * :Autoformat
 call plug#end()
 
