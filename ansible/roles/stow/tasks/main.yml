@@ -12,4 +12,5 @@
     src: "{{ item.path }}"
     dest: "{{ target_dir }}/{{ item.path | relpath(package_path) }}"
     state: link
+    force: yes
   with_items: "{{ files.files }}"
