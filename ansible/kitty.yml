@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  tasks:
+    - name: kitty installed
+      package:
+        name:
+          - kitty
+      become: yes
+
+    - name: get kitty themes
+      git:
+        repo: "https://github.com/dexpota/kitty-themes"
+        depth: 1
+        dest: "{{ lookup('env','HOME') }}/.config/kitty/kitty-themes"
+
+  roles:
+    - role: stow
+      vars:
+        package: kitty
