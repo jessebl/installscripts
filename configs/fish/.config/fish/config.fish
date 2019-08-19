@@ -5,3 +5,5 @@ if not functions -q fisher
 end
 
 fish_import_bash_aliases
+
+set fish_greeting
