@@ -18,6 +18,7 @@ function fish_prompt
 end
 
 function fish_right_prompt
+    set last_status $status
     # Empty if git not in PATH
     command -v git > /dev/null || return
     if git rev-parse --is-inside-work-tree >/dev/null 2>&1
@@ -39,6 +40,11 @@ function fish_right_prompt
 	set_color $color
 	printf $changed
 	printf $ref
+	set_color normal
+    end
+    if test "$last_status" -gt 0
+	set_color red
+	echo -n ' ['$last_status']'
 	set_color normal
     end
 end
