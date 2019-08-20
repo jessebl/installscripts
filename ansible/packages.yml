@@ -14,6 +14,7 @@
           - fd-find
           - ripgrep
           - units
+          - fzf
       become: yes
 
     - name: install common GUI packages
