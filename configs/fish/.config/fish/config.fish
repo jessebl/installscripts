@@ -22,3 +22,9 @@ set -U FZF_CD_OPTS "--preview='ls -l {}'"
 set -U FZF_PREVIEW_FILE_CMD "head -n 10"
 # Re-export to use above variable
 set -U FZF_OPEN_COMMAND "$FZF_FIND_FILE_COMMAND"
+
+if ! set -q GOPATH
+    set -x GOPATH ~/code/go && mkdir -p $GOPATH
+end
+set PATH $GOPATH/bin $PATH
+set -x GO111MODULE on
