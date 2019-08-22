@@ -19,6 +19,7 @@ Plug 'junegunn/fzf.vim'
 set completeopt-=preview
 " Go support (e.g. gofmt on write)
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+let g:go_fmt_command = "goimports"
 " Autcomplete and autoformat brackets, etc.
 Plug 'tmsvg/pear-tree'
 let g:pear_tree_repeatable_expand = 0
