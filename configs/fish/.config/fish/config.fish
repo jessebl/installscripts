@@ -1,7 +1,12 @@
+set -q XDG_CONFIG_HOME; or set -x XDG_CONFIG_HOME ~/.config
+
 if not functions -q fisher
-    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
     curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
     fish -c fisher
+end
+
+if test -f $XDG_CONFIG_HOME/fish/local.fish
+	source $XDG_CONFIG_HOME/fish/local.fish
 end
 
 fish_import_bash_aliases
