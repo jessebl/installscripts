@@ -36,6 +36,8 @@ Plug 'Chiel92/vim-autoformat'
 let g:autoformat_autoindent = 0
 let g:autoformat_retab = 0
 au BufWrite * :Autoformat
+Plug 'elmcast/elm-vim'
+let g:elm_setup_keybindings = 0
 call plug#end()
 
 " Set section
