@@ -34,3 +34,4 @@ set -x FZF_OPEN_COMMAND "$FZF_FIND_FILE_COMMAND"
 set -x GOPATH ~/code/go && mkdir -p $GOPATH
 set -x GO111MODULE on
 set PATH $GOPATH/bin $PATH
+set PATH /sbin $PATH
