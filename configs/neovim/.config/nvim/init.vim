@@ -26,7 +26,7 @@ let g:pear_tree_repeatable_expand = 0
 " Gruvbox theme
 Plug 'morhetz/gruvbox'
 " Completion things
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Javascript syntax and indentation
 Plug 'pangloss/vim-javascript'
 " Javascript JSX syntax and indentation
@@ -38,6 +38,11 @@ let g:autoformat_retab = 0
 au BufWrite * :Autoformat
 Plug 'elmcast/elm-vim'
 let g:elm_setup_keybindings = 0
+" Neovim editing in Firefox!
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+if exists('g:started_by_firenvim')
+  set laststatus=0
+endif
 call plug#end()
 
 " Set section
@@ -48,6 +53,8 @@ set splitbelow	" Open horizontal splits below
 set hidden
 " Switch to previous buffer
 nnoremap <Leader>` :b#<CR>
+
+set wrap linebreak nolist
 
 " Custom Bindings
 " Toggle search-term highlighting
