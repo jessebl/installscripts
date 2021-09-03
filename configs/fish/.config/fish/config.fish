@@ -40,6 +40,7 @@ set PATH /sbin $PATH
 alias gd "git diff"
 alias gc "git commit"
 alias gl "git log"
+alias gst "git status"
 
 if command -v nvim > /dev/null
     set -x EDITOR nvim
