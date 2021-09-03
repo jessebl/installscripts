@@ -10,7 +10,6 @@ if test -f $XDG_CONFIG_HOME/fish/local.fish
 end
 
 set -x PATH ~/.local/bin $PATH
-set -x XDG_DATA_DIRS ~/.local/share/flatpak/exports/share /var/lib/flatpak/exports/share $XDG_DATA_DIRS
 
 fish_import_bash_aliases
 
@@ -35,3 +34,15 @@ set -x GOPATH ~/code/go && mkdir -p $GOPATH
 set -x GO111MODULE on
 set PATH $GOPATH/bin $PATH
 set PATH /sbin $PATH
+
+# alias em "emacsclient -c"
+# alias vi "emacsclient"
+alias gd "git diff"
+alias gc "git commit"
+alias gl "git log"
+
+if command -v nvim > /dev/null
+    set -x EDITOR nvim
+end
+
+alias "meshcommander" "node ~/code/meshcommander/node_modules/meshcommander/meshcommander.js"
