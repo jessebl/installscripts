@@ -43,6 +43,8 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 if exists('g:started_by_firenvim')
   set laststatus=0
 endif
+" Distraction-free writing
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 " Set section
@@ -100,3 +102,8 @@ augroup END
 " let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
 colorscheme gruvbox
+
+set ignorecase
+set smartcase
+
+set mouse=a
