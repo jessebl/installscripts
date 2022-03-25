@@ -3,23 +3,18 @@ call plug#begin()
 " Adds comment action: gc
 Plug 'tpope/vim-commentary'
 " Autodetect indentation
-Plug 'tpope/vim-sleuth'
+" Plug 'tpope/vim-sleuth'
 " Git wrapper/interface
 Plug 'tpope/vim-fugitive'
+:command Gst Git status
+:command Gap Git add -p
+:command Gd Git diff
+:command Gc Git commit
 " Show git diffs in gutter
 Plug 'airblade/vim-gitgutter'
-" Code linting
-" Plug 'w0rp/ale'
 " Fuzzy finding with FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'zchee/deoplete-jedi'
-" let g:deoplete#enable_at_startup = 1
-set completeopt-=preview
-" Go support (e.g. gofmt on write)
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-let g:go_fmt_command = "goimports"
 " Autcomplete and autoformat brackets, etc.
 Plug 'tmsvg/pear-tree'
 let g:pear_tree_repeatable_expand = 0
@@ -27,24 +22,12 @@ let g:pear_tree_repeatable_expand = 0
 Plug 'morhetz/gruvbox'
 " Completion things
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Javascript syntax and indentation
-Plug 'pangloss/vim-javascript'
-" Javascript JSX syntax and indentation
-Plug 'mxw/vim-jsx'
-" Autoformatting
-Plug 'Chiel92/vim-autoformat'
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-au BufWrite * :Autoformat
-Plug 'elmcast/elm-vim'
-let g:elm_setup_keybindings = 0
 " Neovim editing in Firefox!
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 if exists('g:started_by_firenvim')
   set laststatus=0
 endif
-" Distraction-free writing
-Plug 'junegunn/goyo.vim'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 " Set section
@@ -63,16 +46,9 @@ set wrap linebreak nolist
 noremap <Leader>h :set hlsearch! <Enter>
 " Make :make convenient
 nnoremap <Leader>m :make <Enter>
+
 " FZF for browsing buffer
 nnoremap <Leader>b :Buffers <Enter>
-
-" Neovim-specific
-if has('nvim')
-  " Escape terminal mode with Escape
-  tnoremap <Esc> <C-\><C-n>
-endif
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
-
 " FZF bindings
 nnoremap <Leader>f :Files <Enter>
 
@@ -94,16 +70,12 @@ autocmd BufNewFile,BufRead *.ino set makeprg=make\ upload
 " Do not highlight search results by default
 set nohlsearch
 
-augroup golang
-	autocmd!
-	autocmd FileType go nnoremap <Leader>r :GoRun % <Enter>
-augroup END
-
-" let base16colorspace=256  " Access colors present in 256 colorspace
 set background=dark
 colorscheme gruvbox
 
+" See :help ignorecase, :help smartcase
 set ignorecase
 set smartcase
 
+" Enable mouse controls in GUI environments
 set mouse=a
