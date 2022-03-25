@@ -50,7 +50,3 @@ if command -v nvim > /dev/null
 end
 
 alias "meshcommander" "node ~/code/meshcommander/node_modules/meshcommander/meshcommander.js"
-
-if command -v trash-rm > /dev/null
-    alias "rm" "trash-rm"
-end
