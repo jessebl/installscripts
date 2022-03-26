@@ -112,8 +112,6 @@ set smartcase
 " Enable mouse controls in GUI environments
 set mouse=a
 
-set background=light
-
 "" coc-nvim configuration
 " Use <c-space> to trigger completion.
 if has('nvim')
@@ -167,3 +165,16 @@ xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocActionAsync('format')
+" Add missing Go imports on save
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+" Show symbol documentation with <leader>H
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+nnoremap <LEADER>H :call <SID>show_documentation()<CR>
