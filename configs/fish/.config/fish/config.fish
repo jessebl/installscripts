@@ -30,6 +30,9 @@ set -x FZF_PREVIEW_FILE_CMD "head -n 10"
 # Re-export to use above variable
 set -x FZF_OPEN_COMMAND "$FZF_FIND_FILE_COMMAND"
 
+set -x GOPATH ~/code/go && mkdir -p $GOPATH
+set PATH $GOPATH/bin $PATH
+
 # alias em "emacsclient -c"
 # alias vi "emacsclient"
 alias gd "git diff"
