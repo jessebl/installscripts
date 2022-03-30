@@ -1,4 +1,7 @@
 ---
 - hosts: localhost
   roles:
-    - { role: neovim }
+    - role: stow
+      vars:
+        package: neovim
+    - role: neovim

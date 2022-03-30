@@ -10,16 +10,7 @@
   file:
     path: "{{ lookup('env','HOME') }}/.config/nvim"
     state: directory
-- name: set neovim config
-  file:
-    src: "{{ neovim_config | realpath }}"
-    dest: "{{ lookup('env', 'HOME') }}/.config/nvim/init.vim"
-    state: link
 - name: install neovim plugins
   command:
-    nvim +PlugInstall +UpdateRemotePlugins +qall
-- name: alias vi to nvim
-  lineinfile:
-    dest: "{{ lookup('env', 'HOME') }}/.bash_aliases"
-    line: alias vi='nvim'
-    create: yes
+    cmd: nvim +PlugInstall +UpdateRemotePlugins +qall
+    creates: "{{ lookup('env','HOME') }}/.config/nvim/plugged" 
