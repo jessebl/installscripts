@@ -54,12 +54,6 @@ if exists('g:started_by_firenvim')
   set laststatus=0
 endif
 Plug 'sheerun/vim-polyglot'
-" Graphical debugger
-Plug 'puremourning/vimspector'
-" for normal mode - the word under the cursor
-nmap <Leader>di <Plug>VimspectorBalloonEval
-" for visual mode, the visually selected text
-xmap <Leader>di <Plug>VimspectorBalloonEval
 call plug#end()
 
 " Set section
