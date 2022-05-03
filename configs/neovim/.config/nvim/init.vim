@@ -96,7 +96,6 @@ autocmd BufNewFile,BufRead *.ino set makeprg=make\ upload
 " Do not highlight search results by default
 set nohlsearch
 
-set background=dark
 colorscheme gruvbox
 
 " See :help ignorecase, :help smartcase
@@ -172,3 +171,21 @@ function! s:show_documentation()
   endif
 endfunction
 nnoremap <LEADER>H :call <SID>show_documentation()<CR>
+
+lua << EOF
+local function get_gtk_theme()
+  local fh = io.popen("gsettings get org.gnome.desktop.interface gtk-theme")
+  data = fh:read'*a'
+  fh:close()
+  return data
+end
+function set_theme()
+  if string.find(get_gtk_theme(), 'dark') then
+    vim.cmd [[set background=dark]]
+  else
+    vim.cmd [[set background=light]]
+  end
+end
+vim.cmd [[nnoremap <Leader>t :lua set_theme()<CR>]]
+set_theme()
+EOF
