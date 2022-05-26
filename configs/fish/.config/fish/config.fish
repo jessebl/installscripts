@@ -48,3 +48,5 @@ if command -v nvim > /dev/null
 end
 
 alias "meshcommander" "node ~/code/meshcommander/node_modules/meshcommander/meshcommander.js"
+
+alias ssh "kitty +kitten ssh"
