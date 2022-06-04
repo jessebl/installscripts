@@ -50,3 +50,11 @@ end
 alias "meshcommander" "node ~/code/meshcommander/node_modules/meshcommander/meshcommander.js"
 
 alias ssh "kitty +kitten ssh"
+
+if test -e ~/.nix-profile/etc/profile.d/nix.sh; and type -q fenv
+    fenv source ~/.nix-profile/etc/profile.d/nix.sh
+end
+
+# Add bash's keybinding to open the command line in $EDITOR
+# (fish has \ev and \ee by default)
+bind \cx\ce edit_command_buffer
