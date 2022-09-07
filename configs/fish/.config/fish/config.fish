@@ -58,3 +58,8 @@ end
 # Add bash's keybinding to open the command line in $EDITOR
 # (fish has \ev and \ee by default)
 bind \cx\ce edit_command_buffer
+
+function nomash
+    set job (nomad job allocs $argv | grep running | awk '{print $1}' | head -n 1)
+    nomad exec "$job" /bin/sh
+end
