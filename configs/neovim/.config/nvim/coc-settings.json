@@ -1,9 +1,14 @@
 {
-    "powershell.integratedConsole.showOnStartup": false,
-		"languageserver": {
+	"suggest.noselect": true,
+	"coc.preferences.useQuickfixForLocations": true,
+	"powershell.integratedConsole.showOnStartup": false,
+	"python.formatting.provider": "black",
+	"languageserver": {
 		"terraform": {
 			"command": "terraform-ls",
-			"args": ["serve"],
+			"args": [
+				"serve"
+			],
 			"filetypes": [
 				"terraform",
 				"tf"

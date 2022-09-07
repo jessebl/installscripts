@@ -31,7 +31,7 @@ let g:coc_global_extensions = ['coc-json',
       \'coc-docker',
       \'coc-sql',
       \'coc-sh',
-      \'coc-python',
+      \'coc-pyright',
       \'coc-powershell',
       \'coc-phpactor',
       \'coc-php-cs-fixer',
@@ -54,7 +54,17 @@ if exists('g:started_by_firenvim')
   set laststatus=0
 endif
 Plug 'sheerun/vim-polyglot'
+let g:polyglot_disabled = ['sensible']
+" Enable Tree Sitter!
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'nvim-treesitter/nvim-treesitter-context'
+" Dim unselected text
+Plug 'folke/twilight.nvim'
+" Debugger
+Plug 'puremourning/vimspector'
 call plug#end()
+nmap <leader>rn <Plug>(coc-rename)
 
 " Set section
 set splitright	" Open vertical splits to the right
@@ -74,7 +84,7 @@ noremap <Leader>h :set hlsearch! <Enter>
 nnoremap <Leader>m :make <Enter>
 
 " FZF for browsing buffer
-nnoremap <Leader>b :Buffers <Enter>
+nnoremap <Leader>bu :Buffers <Enter>
 " FZF bindings
 nnoremap <Leader>f :Files <Enter>
 
@@ -158,6 +168,7 @@ xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocActionAsync('format')
+nnoremap <Leader>F :Format<CR>
 " Add missing Go imports on save
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 " Show symbol documentation with <leader>H
@@ -189,3 +200,65 @@ end
 vim.cmd [[nnoremap <Leader>t :lua set_theme()<CR>]]
 set_theme()
 EOF
+
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+      -- Automatically install missing parsers when entering buffer
+      auto_install = true,
+      highlight = {
+            enable = true,
+            },
+      incremental_selection = {
+            enable = true,
+            keymaps = {
+                  node_incremental = "<Leader>o",
+                  scope_incremental = "grc",
+                  node_decremental = "<Leader>i",
+                  },
+            },
+      textobjects = {
+            select = {
+                  enable = true,
+
+                  -- Automatically jump forward to textobj, similar to targets.vim
+                  lookahead = true,
+
+                  keymaps = {
+                        -- You can use the capture groups defined in textobjects.scm
+                        ["af"] = "@function.outer",
+                        ["if"] = "@function.inner",
+                        ["ac"] = "@class.outer",
+                        -- you can optionally set descriptions to the mappings (used in the desc parameter of nvim_buf_set_keymap
+                        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+                        },
+                  -- You can choose the select mode (default is charwise 'v')
+                  selection_modes = {
+                        ['@parameter.outer'] = 'v', -- charwise
+                        ['@function.outer'] = 'V', -- linewise
+                        ['@class.outer'] = '<c-v>', -- blockwise
+                        },
+                  -- If you set this to `true` (default is `false`) then any textobject is
+                  -- extended to include preceding xor succeeding whitespace. Succeeding
+                  -- whitespace has priority in order to act similarly to eg the built-in
+                  -- `ap`.
+                  include_surrounding_whitespace = true,
+                  },
+            },
+      }
+EOF
+lua << EOF
+require("twilight").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+      }
+EOF
+
+let g:vimspector_enable_mappings = 'HUMAN'
+nnoremap <Leader>br <Plug>VimspectorToggleBreakpoint
+" for normal mode - the word under the cursor
+nmap <Leader>di <Plug>VimspectorBalloonEval
+" for visual mode, the visually selected text
+xmap <Leader>di <Plug>VimspectorBalloonEval
+
+set tabstop=4
