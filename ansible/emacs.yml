@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  tasks:
+    - package:
+        name: emacs
+      become: true
+    - git:
+        repo: https://github.com/doomemacs/doomemacs
+        dest: ~/.emacs.d
+        depth: 1
+    - shell:
+        cmd: ~/.emacs.d/bin/doom install
+        creates: ~/.doom.d/init.el
+
+  roles:
+    - role: stow
+      vars:
+        package: emacs
