@@ -63,6 +63,8 @@ Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'folke/twilight.nvim'
 " Debugger
 Plug 'puremourning/vimspector'
+"Vim org-mode
+Plug 'jceb/vim-orgmode'
 call plug#end()
 nmap <leader>rn <Plug>(coc-rename)
 
@@ -262,3 +264,7 @@ nmap <Leader>di <Plug>VimspectorBalloonEval
 xmap <Leader>di <Plug>VimspectorBalloonEval
 
 set tabstop=4
+
+let g:coc_filetype_map = {
+  \ 'yaml.ansible': 'ansible',
+  \ }
