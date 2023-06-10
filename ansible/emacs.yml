@@ -8,6 +8,7 @@
         repo: https://github.com/doomemacs/doomemacs
         dest: ~/.emacs.d
         depth: 1
+        force: true
     - shell:
         cmd: ~/.emacs.d/bin/doom install
         creates: ~/.doom.d/init.el
