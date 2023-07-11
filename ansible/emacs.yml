@@ -9,11 +9,11 @@
         dest: ~/.emacs.d
         depth: 1
         force: true
+    - include_role:
+        name: stow
+      vars:
+        package: emacs
     - shell:
         cmd: ~/.emacs.d/bin/doom install
         creates: ~/.doom.d/init.el
 
-  roles:
-    - role: stow
-      vars:
-        package: emacs
