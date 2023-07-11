@@ -42,7 +42,7 @@ else if test -d $HOME/.doom.d
     set -x DOOMDIR $HOME/.doom.d
 end
 alias gd "git diff"
-alias gc "git commit"
+alias gc "git commit -v"
 alias gl "git log"
 alias gst "git status"
 alias ga "git add"
