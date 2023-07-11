@@ -292,9 +292,6 @@ require("nvim-tree").setup({
   view = {
     width = 30,
     mappings = {
-      list = {
-        { key = "u", action = "dir_up" },
-      },
     },
   },
   renderer = {
