@@ -190,7 +190,7 @@ nnoremap <LEADER>H :call <SID>show_documentation()<CR>
 
 lua << EOF
 local function get_gtk_theme()
-  local fh = io.popen("gsettings get org.gnome.desktop.interface gtk-theme")
+  local fh = io.popen("gsettings get org.gnome.desktop.interface color-scheme")
   data = fh:read'*a'
   fh:close()
   return data
