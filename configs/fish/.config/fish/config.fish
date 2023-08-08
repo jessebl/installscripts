@@ -61,3 +61,6 @@ function nomash
     set job (nomad job allocs $argv | grep running | awk '{print $1}' | head -n 1)
     nomad exec "$job" /bin/sh
 end
+
+type fzf_configure_bindings > /dev/null 2>&1 && fzf_configure_bindings --git_log=\e\a
+
