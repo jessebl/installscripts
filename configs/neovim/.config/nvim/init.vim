@@ -10,8 +10,8 @@ Plug 'tpope/vim-fugitive'
 :command Gap Git add -p
 :command Gd Git diff
 :command Gc Git commit
-" Show git diffs in gutter
-Plug 'airblade/vim-gitgutter'
+"  Git integration for buffers (replaces vim-gitgutter)
+Plug 'lewis6991/gitsigns.nvim'
 " Fuzzy finding with FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -23,7 +23,6 @@ Plug 'morhetz/gruvbox'
 " Completion things
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-json',
-      \'coc-git',
       \'coc-html-css-support',
       \'coc-html',
       \'coc-vimlsp',
@@ -70,6 +69,10 @@ Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua'
 call plug#end()
 nmap <leader>rn <Plug>(coc-rename)
+
+lua << EOF
+require('gitsigns').setup()
+EOF
 
 " Set section
 set splitright	" Open vertical splits to the right

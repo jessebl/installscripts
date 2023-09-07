@@ -2,6 +2,7 @@
 	{
 		"suggest.noselect": true,
 		"coc.preferences.useQuickfixForLocations": true,
+		"suggest.autoTrigger": "none",
 		"powershell.integratedConsole.showOnStartup": false,
 		"python.formatting.provider": "black",
 		"languageserver": {
