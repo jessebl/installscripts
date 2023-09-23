@@ -15,9 +15,6 @@ Plug 'lewis6991/gitsigns.nvim'
 " Fuzzy finding with FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Autcomplete and autoformat brackets, etc.
-Plug 'tmsvg/pear-tree'
-let g:pear_tree_repeatable_expand = 0
 " Gruvbox theme
 Plug 'morhetz/gruvbox'
 " Completion things
@@ -42,6 +39,7 @@ let g:coc_global_extensions = ['coc-json',
       \'coc-snippets',
       \'coc-yank',
       \'coc-yaml',
+      \'coc-pairs',
       \]
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
@@ -127,6 +125,11 @@ set mouse=a
 " Use <c-space> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
+  inoremap <silent><expr> <leader><leader> coc#refresh()
+  inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+  inoremap <silent><expr> <tab> coc#pum#visible() ? coc#pum#next(1) : "\<tab>"
+  inoremap <silent><expr> <S-tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-tab>"
+
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
