@@ -8,6 +8,7 @@
 	"suggest.preferCompleteThanJumpPlaceholder": true,
 	"powershell.integratedConsole.showOnStartup": false,
 	"python.formatting.provider": "black",
+	"python.linting.mypyEnabled": true,
 	"codeLens.enable": true,
 	"languageserver": {
 		"terraform": {
