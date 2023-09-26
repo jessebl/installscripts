@@ -2,6 +2,11 @@
 	"suggest.noselect": false,
 	"coc.preferences.useQuickfixForLocations": true,
 	"coc.preferences.floatActions": false,
+	"workspace.ignoredFolders": [
+		"$HOME",
+		"$HOME/.cargo/**",
+		"$HOME/.rustup/**"
+	],
 	"suggest.autoTrigger": "none",
 	"suggest.selection": "recentlyUsed",
 	"suggest.virtualText": true,
@@ -11,10 +16,10 @@
 		"align_if_branch": "false",
 		"break_all_list_when_line_exceed": "false"
 	},
+	"sumneko-lua.enableNvimLuaDev": true,
 	"powershell.integratedConsole.showOnStartup": false,
 	"python.formatting.provider": "black",
 	"python.linting.mypyEnabled": true,
-	"python.analysis.typeCheckingMode": "strict",
 	"codeLens.enable": true,
 	"languageserver": {
 		"terraform": {
