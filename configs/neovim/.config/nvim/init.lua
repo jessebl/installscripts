@@ -129,17 +129,10 @@ require("lazy").setup({
 
 	{
 		"nvim-orgmode/orgmode",
+		lazy = true,
 		dependencies = { { "nvim-treesitter/nvim-treesitter", lazy = true }, },
-		event = "VeryLazy",
+		ft = {'org'},
 		config = function()
-			-- Load treesitter grammar for org
-			require("orgmode").setup_ts_grammar()
-			-- Setup treesitter
-			require("nvim-treesitter.configs").setup({
-				highlight = { enable = true, additional_vim_regex_highlighting = { "org" }, },
-				ensure_installed = { "org" },
-			})
-			-- Setup orgmode
 			require("orgmode").setup({
 				org_agenda_files = "~/orgfiles/**/*",
 				org_default_notes_file =
@@ -213,6 +206,7 @@ require("lazy").setup({
 
 	{
 		"theHamsta/nvim-dap-virtual-text",
+		lazy = true,
 		config = function() require("nvim-dap-virtual-text").setup() end,
 	},
 
