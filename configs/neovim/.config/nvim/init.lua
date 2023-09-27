@@ -26,8 +26,7 @@ require("lazy").setup({
 		lazy = false,
 		priority = 1000,
 		config = function()
-			-- vim.g.gruvbox_material_background = 'hard'
-			vim.g.gruvbox_material_foreground = "material"
+			vim.g.gruvbox_material_background = "medium"
 			vim.cmd([[colorscheme gruvbox-material]])
 		end,
 	},
@@ -131,8 +130,9 @@ require("lazy").setup({
 		"nvim-orgmode/orgmode",
 		lazy = true,
 		dependencies = { { "nvim-treesitter/nvim-treesitter", lazy = true }, },
-		ft = {'org'},
+		ft = { "org" },
 		config = function()
+			require("orgmode").setup_ts_grammar()
 			require("orgmode").setup({
 				org_agenda_files = "~/orgfiles/**/*",
 				org_default_notes_file =
@@ -160,6 +160,9 @@ require("lazy").setup({
 			{ "<leader>dou", function() require("dap").step_out() end,          desc = "Debugging - step out" },
 			{ "<leader>dr",  function() require("dap").repl_open() end,         desc = "Debugging - open repl" },
 		},
+		config = function()
+			vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
+		end
 	},
 
 	{
@@ -186,7 +189,7 @@ require("lazy").setup({
 		},
 	},
 
-	{ "lewis6991/gitsigns.nvim" },
+	{ "lewis6991/gitsigns.nvim", config = function() require("gitsigns").setup() end, },
 
 	{
 		"sheerun/vim-polyglot",
@@ -210,7 +213,19 @@ require("lazy").setup({
 		config = function() require("nvim-dap-virtual-text").setup() end,
 	},
 
-	{ "RRethy/vim-illuminate" },
+	{
+		"RRethy/vim-illuminate",
+		config = function()
+			require("illuminate").configure({
+				filetypes_denylist = {
+					"gitcommit",
+					"help",
+					"text",
+					"org",
+				}
+			})
+		end,
+	},
 
 })
 
@@ -225,7 +240,7 @@ vim.opt.smartcase = true
 vim.opt.linebreak = true
 
 vim.keymap.set("n", "<leader>`", "<cmd>b#<cr>", { desc = "Last-used buffer" })
-vim.keymap.set("n", "<leader>bu", "<cmd>Buffers<cr>", { desc = "Show open buffers in fzf" })
+vim.keymap.set("n", "<leader>b", "<cmd>Buffers<cr>", { desc = "Show open buffers in fzf" })
 vim.keymap.set("n", "<leader>f", "<cmd>Files<cr>", { desc = "Show files in fzf" })
 vim.keymap.set("n", "<leader>m", "<cmd>make<cr>", { desc = "Run makefile" })
 
@@ -246,5 +261,5 @@ function Set_background()
 	end
 end
 
-vim.keymap.set("n", "<leader>t", function() Set_background() end, { desc = "Update background from gtk theme" })
+vim.api.nvim_create_user_command("UpdatBackground", function() Set_background() end, { nargs = 0 })
 Set_background()
