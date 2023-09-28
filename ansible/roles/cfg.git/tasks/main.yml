@@ -1,0 +1,15 @@
+- community.general.git_config:
+    scope: global
+    name: user.name
+    value: jessebl
+
+- community.general.git_config:
+    scope: global
+    name: user.email
+    value: j.bl@posteo.org
+
+- community.general.git_config:
+    scope: global
+    name: core.editor
+    value: nvim
+

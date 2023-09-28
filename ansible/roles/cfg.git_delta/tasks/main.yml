@@ -1,0 +1,30 @@
+- package:
+    name: git-delta
+    state: present
+  become: true
+
+- community.general.git_config:
+    scope: global
+    name: core.pager
+    value: delta
+
+- community.general.git_config:
+    scope: global
+    name: interactive.diffFilter
+    value: delta --color-only
+
+- community.general.git_config:
+    scope: global
+    name: delta.navigate
+    value: "true"
+
+- community.general.git_config:
+    scope: global
+    name: merge.conflictstyle
+    value: diff3
+
+- community.general.git_config:
+    scope: global
+    name: diff.colorMoved
+    value: default
+

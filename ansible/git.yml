@@ -1,0 +1,5 @@
+---
+- hosts: localhost
+  roles:
+    - cfg.git
+    - cfg.git_delta
