@@ -17,9 +17,16 @@ require("lazy").setup({
 
 	{ "tpope/vim-fugitive" },
 
-	{ "junegunn/fzf" },
+	{ "junegunn/fzf",        build = ":call fzf#install()" },
 
-	{ "junegunn/fzf.vim" },
+	{
+		"junegunn/fzf.vim",
+		lazy = false,
+		keys = {
+			{ "<leader>b", "<cmd>Buffers<cr>", desc = "Show open buffers in fzf" },
+			{ "<leader>f", "<cmd>Files<cr>",   desc = "Show files in fzf" },
+		},
+	},
 
 	{
 		"sainnhe/gruvbox-material",
@@ -114,7 +121,23 @@ require("lazy").setup({
 			require("nvim-treesitter.configs").setup {
 				auto_install = true,
 			}
+			-- Workaround when using rmagatti/auto-session
+			-- https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#workaround-when-using-rmagattiauto-session
+			vim.api.nvim_create_autocmd({ "BufEnter" }, {
+				pattern = "NvimTree*",
+				callback = function()
+					local api = require("nvim-tree.api")
+					local view = require("nvim-tree.view")
+
+					if not view.is_visible() then
+						api.tree.open()
+					end
+				end,
+			})
 		end,
+		keys = {
+			{ "<leader>t", "<cmd>NvimTreeToggle<cr>", },
+		},
 	},
 
 	{ "nvim-treesitter/nvim-treesitter-textobjects", },
@@ -146,19 +169,56 @@ require("lazy").setup({
 		lazy = true,
 		dependencies = { "theHamsta/nvim-dap-virtual-text" },
 		keys = {
-			{ "<leader>dc",  function() require("dap").continue() end,          desc = "Debugging - begin/continue" },
+			{
+				"<leader>dc",
+				function() require("dap").continue() end,
+				desc =
+				"Debugging - begin/continue"
+			},
 			{
 				"<leader>dl",
 				function() require("dap").run_last() end,
 				desc =
-				"Debugging - run last configura,tion"
+				"Debugging - run last configuration"
 			},
-			{ "<leader>db",  function() require("dap").toggle_breakpoint() end, desc = "Debugging - toggle breakpoint" },
-			{ "<leader>dd",  function() require("dap").toggle_breakpoint() end, desc = "Debugging - toggle breakpoint" },
-			{ "<leader>dov", function() require("dap").step_over() end,         desc = "Debugging - step over" },
-			{ "<leader>di",  function() require("dap").step_into() end,         desc = "Debugging - step into" },
-			{ "<leader>dou", function() require("dap").step_out() end,          desc = "Debugging - step out" },
-			{ "<leader>dr",  function() require("dap").repl_open() end,         desc = "Debugging - open repl" },
+			{
+				"<leader>dt",
+				function() require("dap").terminate() end,
+				desc =
+				"Debugging - terminate debugging session"
+			},
+			{
+				"<leader>dbs",
+				function() require("dap").toggle_breakpoint() end,
+				desc =
+				"Debugging - toggle breakpoint"
+			},
+			{
+				"<leader>dd",
+				function() require("dap").toggle_breakpoint() end,
+				desc =
+				"Debugging - toggle breakpoint"
+			},
+			{
+				"<leader>dbc",
+				function()
+					require("dap").set_breakpoint(
+						vim.fn.input("Breakpoint condition: "),
+						vim.fn.input("Breakpoint count: "),
+						vim.fn.input("Breakpoint log message: "))
+				end,
+				desc = "Debugging - set conditional breakpoint"
+			},
+			{
+				"<leader>dbr",
+				function() require("dap").clear_breakpoints() end,
+				desc =
+				"Debugging - remove all breakpoints"
+			},
+			{ "<leader>dov", function() require("dap").step_over() end, desc = "Debugging - step over" },
+			{ "<leader>di",  function() require("dap").step_into() end, desc = "Debugging - step into" },
+			{ "<leader>dou", function() require("dap").step_out() end,  desc = "Debugging - step out" },
+			{ "<leader>dr",  function() require("dap").repl_open() end, desc = "Debugging - open repl" },
 		},
 		config = function()
 			vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
@@ -222,10 +282,138 @@ require("lazy").setup({
 					"help",
 					"text",
 					"org",
+					"",
 				}
 			})
 		end,
 	},
+
+	-- 	{
+	-- 		"mikesmithgh/kitty-scrollback.nvim",
+	-- 		enabled = true,
+	-- 		lazy = true,
+	-- 		cmd = { "KittyScrollbackGenerateKittens", "KittyScrollbackCheckHealth" },
+	-- 		version = 'tryclose', -- latest stable version, may have breaking changes if major version changed
+	-- 		config = function()
+	-- 			require("kitty-scrollback").setup()
+	-- 		end,
+	-- 	}
+
+	{
+		"williamboman/mason.nvim",
+		config = function() require("mason").setup() end,
+	},
+
+	{
+		"jay-babu/mason-nvim-dap.nvim",
+		dependencies = { "williamboman/mason.nvim", },
+		config = function()
+			require("mason-nvim-dap").setup({
+				ensure_installed = {
+					"codelldb",
+				}
+			})
+			local dap = require("dap")
+			dap.adapters.codelldb = {
+				type = "server",
+				port = "${port}",
+				executable = {
+					command =
+					"/home/jesse/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb",
+					args = { "--port", "${port}" },
+				}
+			}
+			dap.configurations.cpp = {
+				{
+					name = "Launch file",
+					type = "codelldb",
+					request = "launch",
+					program = function()
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/",
+							"file")
+					end,
+					cwd = "${workspaceFolder}",
+					stopOnEntry = false,
+				},
+			}
+			dap.configurations.rust = dap.configurations.cpp
+		end,
+	},
+
+	{
+		"drybalka/tree-climber.nvim",
+		keys = {
+			{
+				"<C-h>",
+				function() require("tree-climber").goto_parent() end,
+				mode = { "n", "v", "o" },
+				desc =
+				"Treesitter - go to parent node"
+			},
+			{
+				"<C-l>",
+				function() require("tree-climber").goto_child() end,
+				mode = { "n", "v", "o" },
+				desc =
+				"Treesitter - go to child node"
+			},
+			{
+				"<C-j>",
+				function() require("tree-climber").goto_next() end,
+				mode = { "n", "v", "o" },
+				desc =
+				"Treesitter - go to next node"
+			},
+			{
+				"<C-k>",
+				function() require("tree-climber").goto_prev() end,
+				mode = { "n", "v", "o" },
+				desc =
+				"Treesitter - go to previous node"
+			},
+			{
+				"in",
+				function() require("tree-climber").select_node() end,
+				mode = { "v", "o" },
+				desc =
+				"Treesitter - select current node"
+			},
+			{ "<c-k>", function() require("tree-climber").swap_prev() end,      desc = "Treesitter - swap previous node" },
+			{ "<c-j>", function() require("tree-climber").swap_next() end,      desc = "Treesitter - swap next node" },
+			{ "<c-h>", function() require("tree-climber").highlight_node() end, desc = "Treesitter - highlight node" },
+		},
+	},
+
+	{
+		"nvim-tree/nvim-tree.lua",
+		version = "*",
+		lazy = false,
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+			require("nvim-tree").setup {}
+			vim.g.loaded_netrw = 1
+			vim.g.loaded_netrwPlugin = 1
+			vim.opt.termguicolors = true
+		end,
+	},
+
+	{
+		"nvim-tree/nvim-web-devicons"
+	},
+
+	{ "kevinhwang91/nvim-bqf",   ft = "qf" },
+
+	{
+		"rmagatti/auto-session",
+		config = function()
+			require("auto-session").setup {
+				log_level = "error",
+				auto_session_suppress_dirs = { "~/", "~/Downloads", "/" },
+			}
+		end
+	}
 
 })
 
@@ -240,8 +428,6 @@ vim.opt.smartcase = true
 vim.opt.linebreak = true
 
 vim.keymap.set("n", "<leader>`", "<cmd>b#<cr>", { desc = "Last-used buffer" })
-vim.keymap.set("n", "<leader>b", "<cmd>Buffers<cr>", { desc = "Show open buffers in fzf" })
-vim.keymap.set("n", "<leader>f", "<cmd>Files<cr>", { desc = "Show files in fzf" })
 vim.keymap.set("n", "<leader>m", "<cmd>make<cr>", { desc = "Run makefile" })
 
 local function get_gtk_theme()
@@ -254,12 +440,29 @@ local function get_gtk_theme()
 	return ""
 end
 function Set_background()
-	if string.find(get_gtk_theme(), "dark") then
-		vim.cmd [[set background=dark]]
-	else
+	if string.find(get_gtk_theme(), "light") then
 		vim.cmd [[set background=light]]
+	else
+		vim.cmd [[set background=dark]]
 	end
 end
 
-vim.api.nvim_create_user_command("UpdatBackground", function() Set_background() end, { nargs = 0 })
+vim.api.nvim_create_user_command("UpdateBackground", function() Set_background() end, { nargs = 0 })
 Set_background()
+
+if vim.fn.executable("rg") == 1 then
+	-- https://stackoverflow.com/a/55305200
+	vim.o.grepprg = "rg --vimgrep"
+	vim.o.grepformat = "%f:%l:%c:%m"
+end
+
+vim.keymap.set("n", "<leader>cn", "<cmd>cnext<cr>")
+vim.keymap.set("n", "<leader>cp", "<cmd>cprev<cr>")
+
+-- https://vim.fandom.com/wiki/Automatically_fitting_a_quickfix_window_height
+vim.cmd [[
+au FileType qf call AdjustWindowHeight(3, 10)
+function! AdjustWindowHeight(minheight, maxheight)
+  exe max([min([line("$")+1, a:maxheight]), a:minheight]) . "wincmd _"
+endfunction
+]]
