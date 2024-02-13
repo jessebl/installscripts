@@ -15,8 +15,6 @@ require("lazy").setup({
 
 	{ "tpope/vim-commentary" },
 
-	{ "tpope/vim-fugitive" },
-
 	{ "junegunn/fzf",        build = ":call fzf#install()" },
 
 	{
@@ -42,6 +40,7 @@ require("lazy").setup({
 		"neoclide/coc.nvim",
 		branch = "release",
 		lazy = false,
+		dependencies = "honza/vim-snippets",
 		init = function()
 			vim.g.coc_global_extensions = {
 				"coc-json",
@@ -72,15 +71,23 @@ require("lazy").setup({
 		end,
 		config = function()
 			vim.api.nvim_create_user_command("Format", "call CocActionAsync('format')", { nargs = 0 })
+			vim.cmd [[
+				function! ShowDocumentation()
+				  if CocAction('hasProvider', 'hover')
+					call CocActionAsync('doHover')
+				  else
+					call feedkeys('K', 'in')
+				  endif
+				endfunction
+			]]
 		end,
 		keys = {
-			{ "<C-l>",      "<Plug>(coc-snippets-expand)" },
-			{ "<C-j>",      "<Plug>(coc-snippets-select)" },
 			{ "gd",         "<Plug>(coc-type-definition)" },
 			{ "gi",         "<Plug>(coc-implementation)" },
 			{ "gy",         "<Plug>(coc-type-definition)" },
 			{ "gr",         "<Plug>(coc-references)" },
 			{ "<leader>rn", "<Plug>(coc-rename)" },
+			{ "<leader>h",  ":call ShowDocumentation()<CR>", silent = true, desc = "Show hover documentation" },
 			{
 				"<leader><leader>",
 				"coc#refresh()",
@@ -112,42 +119,17 @@ require("lazy").setup({
 		},
 	},
 
-	{ "folke/neodev.nvim",                           lazy = false, },
+	{ "folke/neodev.nvim",                           ft = "lua" },
 
 	{
 		"nvim-treesitter/nvim-treesitter",
+		lazy = false,
 		build = ":TSUpdate",
-		config = function()
-			require("nvim-treesitter.configs").setup {
-				auto_install = true,
-			}
-			-- Workaround when using rmagatti/auto-session
-			-- https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#workaround-when-using-rmagattiauto-session
-			vim.api.nvim_create_autocmd({ "BufEnter" }, {
-				pattern = "NvimTree*",
-				callback = function()
-					local api = require("nvim-tree.api")
-					local view = require("nvim-tree.view")
-
-					if not view.is_visible() then
-						api.tree.open()
-					end
-				end,
-			})
-		end,
-		keys = {
-			{ "<leader>t", "<cmd>NvimTreeToggle<cr>", },
-		},
 	},
 
 	{ "nvim-treesitter/nvim-treesitter-textobjects", },
 
 	{ "nvim-treesitter/nvim-treesitter-context", },
-
-	{
-		"folke/twilight.nvim",
-		opts = {}
-	},
 
 	{
 		"nvim-orgmode/orgmode",
@@ -263,7 +245,6 @@ require("lazy").setup({
 
 	{
 		"folke/which-key.nvim",
-		event = "VeryLazy",
 		config = function() require("which-key").register() end
 	},
 
@@ -288,24 +269,15 @@ require("lazy").setup({
 		end,
 	},
 
-	-- 	{
-	-- 		"mikesmithgh/kitty-scrollback.nvim",
-	-- 		enabled = true,
-	-- 		lazy = true,
-	-- 		cmd = { "KittyScrollbackGenerateKittens", "KittyScrollbackCheckHealth" },
-	-- 		version = 'tryclose', -- latest stable version, may have breaking changes if major version changed
-	-- 		config = function()
-	-- 			require("kitty-scrollback").setup()
-	-- 		end,
-	-- 	}
-
 	{
 		"williamboman/mason.nvim",
+		lazy = true,
 		config = function() require("mason").setup() end,
 	},
 
 	{
 		"jay-babu/mason-nvim-dap.nvim",
+		lazy = true,
 		dependencies = { "williamboman/mason.nvim", },
 		config = function()
 			require("mason-nvim-dap").setup({
@@ -319,7 +291,7 @@ require("lazy").setup({
 				port = "${port}",
 				executable = {
 					command =
-					"/home/jesse/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb",
+					"~/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb",
 					args = { "--port", "${port}" },
 				}
 			}
@@ -344,28 +316,28 @@ require("lazy").setup({
 		"drybalka/tree-climber.nvim",
 		keys = {
 			{
-				"<C-h>",
+				"H",
 				function() require("tree-climber").goto_parent() end,
 				mode = { "n", "v", "o" },
 				desc =
 				"Treesitter - go to parent node"
 			},
 			{
-				"<C-l>",
+				"L",
 				function() require("tree-climber").goto_child() end,
 				mode = { "n", "v", "o" },
 				desc =
 				"Treesitter - go to child node"
 			},
 			{
-				"<C-j>",
+				"J",
 				function() require("tree-climber").goto_next() end,
 				mode = { "n", "v", "o" },
 				desc =
 				"Treesitter - go to next node"
 			},
 			{
-				"<C-k>",
+				"K",
 				function() require("tree-climber").goto_prev() end,
 				mode = { "n", "v", "o" },
 				desc =
@@ -384,25 +356,6 @@ require("lazy").setup({
 		},
 	},
 
-	{
-		"nvim-tree/nvim-tree.lua",
-		version = "*",
-		lazy = false,
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		config = function()
-			require("nvim-tree").setup {}
-			vim.g.loaded_netrw = 1
-			vim.g.loaded_netrwPlugin = 1
-			vim.opt.termguicolors = true
-		end,
-	},
-
-	{
-		"nvim-tree/nvim-web-devicons"
-	},
-
 	{ "kevinhwang91/nvim-bqf",   ft = "qf" },
 
 	{
@@ -413,7 +366,33 @@ require("lazy").setup({
 				auto_session_suppress_dirs = { "~/", "~/Downloads", "/" },
 			}
 		end
-	}
+	},
+
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		lazy = true,
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+			-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+		},
+		config = function()
+			require("neo-tree").setup({
+				filesystem = { follow_current_file = { enabled = true, }, },
+			})
+		end,
+		cmd = "Neotree",
+	},
+
+	{
+		"danymat/neogen",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+		config = true,
+		-- Uncomment next line if you want to follow only stable versions
+		-- version = "*"
+	},
 
 })
 
@@ -465,4 +444,14 @@ au FileType qf call AdjustWindowHeight(3, 10)
 function! AdjustWindowHeight(minheight, maxheight)
   exe max([min([line("$")+1, a:maxheight]), a:minheight]) . "wincmd _"
 endfunction
+nmap <leader>ac  <Plug>(coc-codeaction-cursor)
+]]
+
+-- https://www.reddit.com/r/vim/comments/bmh977/automatically_open_quickfix_window_after/emwjm7h/
+vim.cmd [[
+augroup quickfix
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* cwindow
+    autocmd QuickFixCmdPost l* lwindow
+augroup END
 ]]

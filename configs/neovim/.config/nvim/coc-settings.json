@@ -21,6 +21,14 @@
 	"python.formatting.provider": "black",
 	"python.linting.mypyEnabled": true,
 	"codeLens.enable": true,
+	"yaml.schemas": {
+		"https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/tasks.json": [
+			"**/tasks/*.yml",
+			"**/tasks/*.yaml",
+			"**/handlers/*.yml",
+			"**/handlers/*.yaml"
+		]
+	},
 	"languageserver": {
 		"terraform": {
 			"command": "terraform-ls",
